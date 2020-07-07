@@ -1,68 +1,79 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### 커밋 업데이트 목록
 
-In the project directory, you can run:
+- yarn add styled-components <br />
+- index.css 에 reset css 설정 <br />
+- background는 `#111111`, color는 `#ffffff` 로 기본 색 설정 <br />
 
-### `yarn start`
+# :open_book: Netflix-Clone SPA Project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![React-v16.13.1](https://img.shields.io/badge/React-v16.12.0-61DAFB.svg?logo=react)](https://reactjs.org/)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-007ACC.svg)](https://code.visualstudio.com/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Main 페이지에서는 `메인영화 소개 화면`과 `영화리스트(NetfilxOriginal, Trending)`를 볼 수 있다. <br />
+- Genres 페이지에서는 카테고리로 구분 된 `장르 별 영화`를 볼 수 있다. <br />
+- MyList 페이지에서는 영화정보화면에서 ADD MYLIST 버튼을 누른 영화들을 확인 할 수 있다. <br />
 
-### `yarn test`
+## :clock3: Project Period
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2020.07.06 ~
 
-### `yarn build`
+## :hammer: Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```javascript
+yarn add
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :bell: Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+yarn start
+```
 
-### `yarn eject`
+If you enter `yarn start` or `npm run start`, your browser open `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :mag_right: Directory Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+└── src
+    ├── components
+    ├── containers
+    ├── modules
+    ├── lib
+    ├── pages
+    └── static
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 컴포넌트의 경우 `Atomic Design`을 간소화시켜 (`components`, `containers` / `PascalCase`)
+- `modules`에는 `redux` 정의 (`redux-thunk`, `redux-saga`)
+- `pages`는 라우팅이 되는 가장 최상위 컴포넌트를 정의(`kebab-case`)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## :penguin: Preview
 
-## Learn More
+#### 1-1. 홈 목록 페이지
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :mag: Thchnical Skills
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 메인 라이브러리: React
+- 메인 언어 및 문법: Javascript ES6+, JSX
+- 상태 관리: redux, redux-thunk, redux-saga
+- 서버: webpack-dev-server
+- UI Library: Ant Design
+- 기타: git, Babel, eslint, prettier, lodash, sessionStorage
 
-### Code Splitting
+## :pray: Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Please PR.
 
-### Analyzing the Bundle Size
+## :trident: Collaboraters
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+안현우([Ahnder](https://github.com/Ahnder))
 
-### Making a Progressive Web App
+## :eyes: See also
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+My Development Blog:
 
-### Advanced Configuration
+## :copyright: License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT](LICENSE)
