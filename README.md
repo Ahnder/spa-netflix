@@ -2,9 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 목록
 
-- yarn add styled-components <br />
-- index.css 에 reset css 설정 <br />
-- background는 `#111111`, color는 `#ffffff` 로 기본 색 설정 <br />
+- 네비게이션 설정 <br />
+- yarn add react-icons <br />
+- react-icons/fi 사용 <br />
+- 네비게이션 메뉴를 좌우로 나누어 왼쪽은 라우터설정, 오른쪽은 검색과 아이콘 설정 <br />
+- 로고(src/static/image/Netflix_Logo.png)를 네비게이션 좌측에 설정 <br />
+- styled-components를 사용하여 네비게이션의 CSS 설정 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

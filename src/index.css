@@ -153,6 +153,10 @@ a {
   box-sizing: inherit;
 }
 
+.App {
+  padding-top: 100px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
