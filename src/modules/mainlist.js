@@ -1,6 +1,7 @@
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 /* import tmdb api */
 import * as api from '../lib/api/tmdb_api';
+import createRequestThunk from '../lib/util/createRequestThunk';
 
 /**
  * GET_NETFLIX : 넷플릭스 오리지널 시리즈 데이터를 가져온다.
@@ -17,40 +18,14 @@ const GET_TVTRENDING_FAILURE = 'mainlist/GET_TVTRENDING_FAILURE';
 
 // thunk 함수 생성
 
-export const getNetflix = () => async (dispatch) => {
-  dispatch({ type: GET_NETFLIX }); // 요청 시작
-  try {
-    const response = await api.getNetflixoriginal();
-    dispatch({
-      type: GET_NETFLIX_SUCCESS,
-      payload: response.data,
-    }); // 요청 성공
-  } catch (e) {
-    dispatch({
-      type: GET_NETFLIX_FAILURE,
-      payload: e,
-      error: true,
-    }); // 요청 실패
-    throw e; // 나중에 컴포넌트단에서 에러를 조회할 수 있게 하기 위한 조치
-  }
-};
-export const getTvTrending = () => async (dispatch) => {
-  dispatch({ type: GET_TVTRENDING }); // 요청 시작
-  try {
-    const response = await api.getTvTrending();
-    dispatch({
-      type: GET_TVTRENDING_SUCCESS,
-      payload: response.data,
-    }); // 요청 성공
-  } catch (e) {
-    dispatch({
-      type: GET_TVTRENDING_FAILURE,
-      payload: e,
-      error: true,
-    }); // 요청 실패
-    throw e; // 나중에 컴포넌트단에서 에러를 조회할 수 있게 하기 위한 조치
-  }
-};
+export const getNetflix = createRequestThunk(
+  GET_NETFLIX,
+  api.getNetflixoriginal,
+);
+export const getTvTrending = createRequestThunk(
+  GET_TVTRENDING,
+  api.getTvTrending,
+);
 
 // 초기 상태를 선언
 // 요청의 로딩 중 상태는 loading 이라는 객체에서 관리
