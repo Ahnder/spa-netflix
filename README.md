@@ -1,12 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### 커밋 업데이트 목록
+### 커밋 업데이트 내용
 
-- 메인화면을 MainViewContainer 와 MainMovieListContainer로 나누어 구현 <br />
-- MainViewContainer에는 홈 화면에서 보여줄 메인영화 이미지와 간단한 정보를 볼수있다. <br />
-- src/lib/data 폴더를 새로 만들어서 메인화면에 출력할 영화정보를 편집할 파일을 생성 (MainViewMovieInfo.js) <br />
-- CommonComponent에 NetflixButtons를 작성하여 메인화면 뿐 아니라 공통으로 쓸 수 있게 설정 <br />
-- react-icons/fi 를 적용해 아이콘 사용
+- MainMovieList 화면 구현 <br />
+- tmdb API 를 사용 (https://developers.themoviedb.org/3/getting-started/introduction) <br />
+- axios로 tmdb 데이터를 가져온다. (src/lib/api 폴더에 생성) (axios) <br />
+- redux를 사용하여 구조 설정 (redux, react-redux, redux-actions) <br />
+- redux-devtools-extension 설치 및 적용 <br />
+- 비동기 작업을 처리하므로 redux-thunk를 사용 <br />
+- 리덕스 모듈 생성 (redux-thunk 이용) modules/movielist
+- MainMovieList 화면에 netflixOriginal 데이터를 가져와 제목을 출력함. <br />
 
 # :open_book: Netflix-Clone SPA Project
 
