@@ -2,12 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 목록
 
-- 네비게이션 설정 <br />
-- yarn add react-icons <br />
-- react-icons/fi 사용 <br />
-- 네비게이션 메뉴를 좌우로 나누어 왼쪽은 라우터설정, 오른쪽은 검색과 아이콘 설정 <br />
-- 로고(src/static/image/Netflix_Logo.png)를 네비게이션 좌측에 설정 <br />
-- styled-components를 사용하여 네비게이션의 CSS 설정 <br />
+- 메인화면을 MainViewContainer 와 MainMovieListContainer로 나누어 구현 <br />
+- MainViewContainer에는 홈 화면에서 보여줄 메인영화 이미지와 간단한 정보를 볼수있다. <br />
+- src/lib/data 폴더를 새로 만들어서 메인화면에 출력할 영화정보를 편집할 파일을 생성 (MainViewMovieInfo.js) <br />
+- CommonComponent에 NetflixButtons를 작성하여 메인화면 뿐 아니라 공통으로 쓸 수 있게 설정 <br />
+- react-icons/fi 를 적용해 아이콘 사용
 
 # :open_book: Netflix-Clone SPA Project
 

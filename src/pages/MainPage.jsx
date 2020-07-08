@@ -1,7 +1,10 @@
 import React from 'react';
 
+/* import MainViewContainer */
+import MainViewContainer from '../containers/MainViewContainer';
+
 const MainPage = () => {
-  return <div>홈</div>;
+  return <MainViewContainer />;
 };
 
 export default MainPage;
