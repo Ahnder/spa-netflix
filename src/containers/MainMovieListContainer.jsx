@@ -14,9 +14,9 @@ import MainMovieList from '../components/MainCommponent/MainMovieList';
  */
 
 const MainMovieListContainer = () => {
-  const { netflix, loadingNetflix } = useSelector(({ mainlist }) => ({
+  const { netflix, loadingNetflix } = useSelector(({ mainlist, loading }) => ({
     netflix: mainlist.netflix,
-    loadingNetflix: mainlist.loading.GET_NETFLIX,
+    loadingNetflix: loading.GET_NETFLIX,
   }));
   const dispatch = useDispatch();
 

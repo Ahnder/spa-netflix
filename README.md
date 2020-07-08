@@ -2,14 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- MainMovieList 화면 구현 <br />
-- tmdb API 를 사용 (https://developers.themoviedb.org/3/getting-started/introduction) <br />
-- axios로 tmdb 데이터를 가져온다. (src/lib/api 폴더에 생성) (axios) <br />
-- redux를 사용하여 구조 설정 (redux, react-redux, redux-actions) <br />
-- redux-devtools-extension 설치 및 적용 <br />
-- 비동기 작업을 처리하므로 redux-thunk를 사용 <br />
-- 리덕스 모듈 생성 (redux-thunk 이용) modules/movielist
-- MainMovieList 화면에 netflixOriginal 데이터를 가져와 제목을 출력함. <br />
+- modules/mainlist 리팩토링
+- 장르별영화 페이지에서도 redux를 쓸 예정이므로 공통된 기능을 쓰기 쉽게 리팩토링
+- createRequestThunk : API 요청을 해 주는 thunk 함수를 담고 있다.
+- modules/loading : redux파일에서 직접 하던 loading 상태관리를 분리해서 쓰기 쉽게 리팩토링
 
 # :open_book: Netflix-Clone SPA Project
 
