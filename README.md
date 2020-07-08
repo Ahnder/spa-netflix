@@ -2,10 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- modules/mainlist 리팩토링
-- 장르별영화 페이지에서도 redux를 쓸 예정이므로 공통된 기능을 쓰기 쉽게 리팩토링
-- createRequestThunk : API 요청을 해 주는 thunk 함수를 담고 있다.
-- modules/loading : redux파일에서 직접 하던 loading 상태관리를 분리해서 쓰기 쉽게 리팩토링
+- MainMovieListContainer 에러값 조회 리팩토링
+- dispatch 실패했을 시 콘솔에서 에러값 조회가 가능하게 리팩토링
 
 # :open_book: Netflix-Clone SPA Project
 

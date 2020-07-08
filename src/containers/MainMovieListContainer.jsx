@@ -21,7 +21,14 @@ const MainMovieListContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getNetflix());
+    const fn = async () => {
+      try {
+        dispatch(getNetflix());
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fn();
   }, [dispatch]);
 
   return <MainMovieList movies={netflix} loading={loadingNetflix} />;
