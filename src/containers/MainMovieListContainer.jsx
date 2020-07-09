@@ -31,7 +31,13 @@ const MainMovieListContainer = () => {
     fn();
   }, [dispatch]);
 
-  return <MainMovieList movies={netflix} loading={loadingNetflix} />;
+  return (
+    <MainMovieList
+      listName="NETFLIXORIGINAL"
+      movies={netflix}
+      loading={loadingNetflix}
+    />
+  );
 };
 
 export default MainMovieListContainer;
