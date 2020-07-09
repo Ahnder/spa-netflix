@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- FooterComponent 추가 <br />
+- Navigation에 스크롤을 내릴시 네비게이션 배경색이 들어가도록 변경하여 시인성 개선 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

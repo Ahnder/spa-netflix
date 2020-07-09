@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FiSearch, FiGift, FiBell, FiSmile } from 'react-icons/fi';
 
 /* import navigation logo */
@@ -16,6 +16,12 @@ const NavBlock = styled.nav`
   align-items: center;
   font-size: 1.2rem;
   font-weight: 600;
+
+  ${(props) =>
+    props.scrollNav &&
+    css`
+      background: #111111;
+    `}
 `;
 const LeftNavMenu = styled.div`
   display: flex;
@@ -58,9 +64,9 @@ const NavIcon = styled.div`
   }
 `;
 
-const Navigation = () => {
+const Navigation = ({ scrollNav }) => {
   return (
-    <NavBlock>
+    <NavBlock scrollNav={scrollNav}>
       <LeftNavMenu>
         <Logo src={NavLogo} alt="NavLogoIMG" />
         <LinkBlock>
