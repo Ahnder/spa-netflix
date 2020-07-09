@@ -2,9 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- MainMovie Component 에 제목과 포스터 출력 <br />
-- 리스트에 영화가 4개씩 출력되고 좌우 버튼으로 다음 항목 또는 이전 항목 이동 할수있다. <br />
-- useState, useEffect, useRef를 사용하여 이동기능 생성 <br />
+- MainMovie Component 에 TV_TRENDING 출력 <br />
+- MainMovieList의 좌우버튼 함수 useCallback으로 정리 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

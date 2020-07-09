@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 /* import redux module */
-import { getNetflix } from '../modules/mainlist';
+import { getNetflix, getTvTrending } from '../modules/mainlist';
 
 /* import Component */
 import MainMovieList from '../components/MainCommponent/MainMovieList';
@@ -14,16 +14,21 @@ import MainMovieList from '../components/MainCommponent/MainMovieList';
  */
 
 const MainMovieListContainer = () => {
-  const { netflix, loadingNetflix } = useSelector(({ mainlist, loading }) => ({
-    netflix: mainlist.netflix,
-    loadingNetflix: loading.GET_NETFLIX,
-  }));
+  const { netflix, tvtrend, loadingNetflix, loadingTvtrend } = useSelector(
+    ({ mainlist, loading }) => ({
+      netflix: mainlist.netflix,
+      tvtrend: mainlist.tvtrend,
+      loadingNetflix: loading.GET_NETFLIX,
+      loadingTvtrend: loading.GET_TVTRENDING,
+    }),
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fn = async () => {
       try {
-        dispatch(getNetflix());
+        await dispatch(getNetflix());
+        await dispatch(getTvTrending());
       } catch (e) {
         console.log(e);
       }
@@ -32,11 +37,18 @@ const MainMovieListContainer = () => {
   }, [dispatch]);
 
   return (
-    <MainMovieList
-      listName="NETFLIXORIGINAL"
-      movies={netflix}
-      loading={loadingNetflix}
-    />
+    <>
+      <MainMovieList
+        listName="NETFLIX_ORIGINAL"
+        movies={netflix}
+        loading={loadingNetflix}
+      />
+      <MainMovieList
+        listName="TV_TRENDING"
+        movies={tvtrend}
+        loading={loadingTvtrend}
+      />
+    </>
   );
 };
 

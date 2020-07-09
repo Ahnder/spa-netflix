@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styled from 'styled-components';
 
@@ -43,6 +43,7 @@ const ButtonRight = styled.div`
 `;
 const ListTitle = styled.h1`
   font-size: 2.5rem;
+  margin-left: 1rem;
 `;
 const MovieList = styled.div`
   display: flex;
@@ -56,22 +57,22 @@ const MovieList = styled.div`
  */
 
 const MainMovieList = ({ movies, loading, listName }) => {
-  const TOTAL_SLIDES = 4;
+  const TOTAL_SLIDES = 4; // movies에 20개의 항목이 들어있으므로 4로 설정
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     // 더 이상 넘어갈 슬라이드가 없으면 초기화
     currentSlide >= TOTAL_SLIDES
       ? setCurrentSlide(0)
       : setCurrentSlide(currentSlide + 1);
-  };
-  const prevSlide = () => {
+  }, [currentSlide]);
+  const prevSlide = useCallback(() => {
     // 현재 슬라이드가 0 즉 초기값이면 마지막 슬라이드로 넘김
     currentSlide === 0
       ? setCurrentSlide(TOTAL_SLIDES)
       : setCurrentSlide(currentSlide - 1);
-  };
+  }, [currentSlide]);
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
