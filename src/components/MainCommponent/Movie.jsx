@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+/* import Common */
+
+/* styled 설정 */
 const MovieBlock = styled.div`
   cursor: pointer;
   &:hover {
@@ -30,14 +34,16 @@ const ImgBlock = styled.div`
   }
 `;
 
-const Movie = ({ title, posterPath }) => {
+const Movie = ({ title, posterPath, id }) => {
   return (
-    <MovieBlock>
-      <h3>{title}</h3>
-      <ImgBlock>
-        <img src={posterPath} alt="poster" />
-      </ImgBlock>
-    </MovieBlock>
+    <Link to={`/tv/${id}`}>
+      <MovieBlock>
+        <h3>{title}</h3>
+        <ImgBlock>
+          <img src={posterPath} alt="poster" />
+        </ImgBlock>
+      </MovieBlock>
+    </Link>
   );
 };
 

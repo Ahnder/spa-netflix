@@ -2,7 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- Navigation에 스크롤을 내릴시 네비게이션 배경색이 들어가도록 변경하여 시인성 개선 <br />
+- MainMovieList 의 각 영화 목록을 클릭했을 시 영화정보 페이지로 넘어가도록 설정 <br />
+- match.params로 각 티비 또는 영화의 id값을 가져와 새로운 페이지에 id값 출력 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

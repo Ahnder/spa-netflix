@@ -80,33 +80,41 @@ const MainMovieList = ({ movies, loading, listName }) => {
   }, [currentSlide]);
 
   return (
-    <MovieListBlock>
-      <ListTitle>{listName}</ListTitle>
-      <MovieList ref={slideRef}>
-        {loading && '로딩 중...'}
-        {!loading &&
-          movies &&
-          movies.map((movie) =>
-            movie.title ? (
-              <Movie
-                title={movie.title}
-                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-              />
-            ) : (
-              <Movie
-                title={movie.name}
-                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-              />
-            ),
-          )}
-      </MovieList>
-      <ButtonLeft onClick={() => prevSlide()}>
-        <FiChevronLeft />
-      </ButtonLeft>
-      <ButtonRight onClick={() => nextSlide()}>
-        <FiChevronRight />
-      </ButtonRight>
-    </MovieListBlock>
+    <>
+      <MovieListBlock>
+        <ListTitle>{listName}</ListTitle>
+        <MovieList ref={slideRef}>
+          {loading && '로딩 중...'}
+          {!loading &&
+            movies &&
+            movies.map((movie) =>
+              movie.title ? (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  overview={movie.overview}
+                  title={movie.title}
+                  posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                />
+              ) : (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  overview={movie.overview}
+                  title={movie.name}
+                  posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                />
+              ),
+            )}
+        </MovieList>
+        <ButtonLeft onClick={() => prevSlide()}>
+          <FiChevronLeft />
+        </ButtonLeft>
+        <ButtonRight onClick={() => nextSlide()}>
+          <FiChevronRight />
+        </ButtonRight>
+      </MovieListBlock>
+    </>
   );
 };
 
