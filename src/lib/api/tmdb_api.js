@@ -26,3 +26,13 @@ export const getMovieTrending = () =>
   axios.get(
     `https://api.themoviedb.org/3/trending/movie/week?api_key=${MY_API_KEY}&language=en-US`,
   );
+
+/**
+ * TVPOST
+ * API 주소
+ * https://api.themoviedb.org/3/tv/${id}?api_key=7b2585c3179825537cb88b4d13b35e1c&language=en-US
+ */
+export const getTvPost = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${MY_API_KEY}&language=en-US`,
+  );

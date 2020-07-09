@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/* import common component */
+import NetflixButtons from '../NetflixButtons/NetflixButtons';
+
 /* styled 설정 */
 const MainViewBlock = styled.div`
   display: flex;
@@ -40,12 +43,12 @@ const MovieInfoOverview = styled.p`
   height: 6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 5 = 6em */
 `;
 
-const PostView = ({ title, overview, backdropPath }) => {
+const PostView = ({ title, overview, posterPath }) => {
   return (
     <MainViewBlock>
       <BackgroundIMG
-        src={`https://image.tmdb.org/t/p/original/${backdropPath}`}
-        alt="MainViewBackgroundImage"
+        src={`https://image.tmdb.org/t/p/original/${posterPath}`}
+        alt="PostBackgroundImage"
       />
       <MovieInfoBlock>
         <MovieInfoTitle>{title}</MovieInfoTitle>

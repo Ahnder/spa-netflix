@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### 커밋 업데이트 내용
 
 - MainMovieList 의 각 영화 목록을 클릭했을 시 영화정보 페이지로 넘어가도록 설정 <br />
-- match.params로 각 티비 또는 영화의 id값을 가져와 새로운 페이지에 id값 출력 <br />
+- tvpost 모듈을 새로 설정하고 데이터를 가져옴 <br />
+- tv/:id 페이지에서 각각의 영화 정보 출력 <br />
 
 # :open_book: Netflix-Clone SPA Project
 
