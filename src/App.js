@@ -7,6 +7,8 @@ import GenresPage from './pages/GenresPage';
 import MyListPage from './pages/MyListPage';
 /* import Navigation */
 import NavigationContainer from './containers/NavigationContainer';
+/* import Footer */
+import Footer from './components/CommonComponent/Footer';
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/genres" component={GenresPage} />
         <Route path="/mylist" component={MyListPage} />
       </div>
+      <Footer />
     </>
   );
 }

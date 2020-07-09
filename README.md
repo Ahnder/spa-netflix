@@ -2,8 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- MainMovie Component 에 TV_TRENDING 출력 <br />
-- MainMovieList의 좌우버튼 함수 useCallback으로 정리 <br />
+- FooterComponent 추가 <br />
 
 # :open_book: Netflix-Clone SPA Project
 
