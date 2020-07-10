@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 /* styeld 설정 */
 const CategoriesBlock = styled.div`
@@ -21,16 +21,30 @@ const ListItem = styled.li`
   & + & {
     margin-left: 1rem;
   }
+
+  ${(props) =>
+    props.genreId === props.categoryId &&
+    css`
+      color: red;
+      border-bottom: 3px solid red;
+    `}
 `;
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories, onSelect, genreId }) => {
   return (
     <CategoriesBlock>
       <UnorderedList>
         {!categories && '카테고리 데이터가 존재하지 않습니다.'}
         {categories &&
           categories.map((category) => (
-            <ListItem key={category.id}>{category.name}</ListItem>
+            <ListItem
+              key={category.id}
+              onClick={() => onSelect(category.id)}
+              categoryId={category.id}
+              genreId={genreId}
+            >
+              {category.name}
+            </ListItem>
           ))}
       </UnorderedList>
     </CategoriesBlock>

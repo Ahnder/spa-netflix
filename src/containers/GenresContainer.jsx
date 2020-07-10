@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 /* import module */
@@ -12,28 +12,35 @@ import MovieList from '../components/GenresComponent/MovieList';
 import GenresCategories from '../lib/data/GenreCategories';
 
 const GenresContainer = () => {
+  const [genreId, setGenreId] = useState(GenresCategories[0].id);
   const { genres, loadingGenres } = useSelector(({ genres, loading }) => ({
     genres: genres.genres.movies,
     loadingGenres: loading.GET_GENRES,
   }));
   const dispatch = useDispatch();
 
-  const firstId = GenresCategories[0].id;
+  const selectGenre = useCallback((id) => {
+    setGenreId(id);
+  }, []);
 
   useEffect(() => {
     const fn = async () => {
       try {
-        await dispatch(getGenres(firstId));
+        await dispatch(getGenres(genreId));
       } catch (e) {
         console.log(e);
       }
     };
     fn();
-  }, [dispatch]);
+  }, [dispatch, genreId]);
 
   return (
     <>
-      <Categories categories={GenresCategories} />
+      <Categories
+        categories={GenresCategories}
+        onSelect={selectGenre}
+        genreId={genreId}
+      />
       <MovieList movies={genres} loading={loadingGenres} />
     </>
   );
