@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTvPost } from '../modules/post';
+import { getTvPost, clearPost } from '../modules/post';
 
 /* import component */
 import TvPost from '../components/PostComponent/TvPost';
 /* import common component */
-import PostView from '../components/CommonComponent/ModalComponent/PostView';
+import PostView from '../components/CommonComponent/PostComponent/PostView';
 
 const TvPostContainer = ({ id }) => {
   const { tvpost, loadingTvpost } = useSelector(({ post, loading }) => ({
-    tvpost: post.tvpost,
+    tvpost: post.tvpost.movies,
     loadingTvpost: loading.GET_TVPOST,
   }));
   const dispatch = useDispatch();
@@ -23,12 +23,16 @@ const TvPostContainer = ({ id }) => {
       }
     };
     fn();
+    return () => {
+      dispatch(clearPost());
+    };
   }, [dispatch]);
 
   if (!tvpost) return null;
 
   return (
     <PostView
+      movie={tvpost}
       title={tvpost.name}
       overview={tvpost.overview}
       posterPath={tvpost.backdrop_path}

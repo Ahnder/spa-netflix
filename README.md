@@ -5,6 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - MainMovieList 의 각 영화 목록을 클릭했을 시 영화정보 페이지로 넘어가도록 설정 <br />
 - tvpost 모듈을 새로 설정하고 데이터를 가져옴 <br />
 - tv/:id 페이지에서 각각의 영화 정보 출력 <br />
+- tv/:id 페이지에서 시즌이 있는 tv시리즈일 경우 시즌정보를 출력 <br />
+- TvPostContainer의 useEffect 부분에 뒷정리 함수를 추가하여 다른 tv/:id에 들어갔을때,
+  이전 정보가 남아있는 문제 처리 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

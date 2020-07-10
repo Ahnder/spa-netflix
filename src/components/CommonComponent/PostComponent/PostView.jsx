@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-/* import CommonComponent */
-import NetflixButtons from '../CommonComponent/NetflixButtons/NetflixButtons';
-
-/* import backgroundIMG */
-import BackgroundImage from '../../static/image/Netflix_Header_Img.jpg';
+/* import common component */
+import NetflixButtons from '../NetflixButtons/NetflixButtons';
+import Seasons from './Seasons';
 
 /* styled 설정 */
 const MainViewBlock = styled.div`
@@ -46,17 +44,24 @@ const MovieInfoOverview = styled.p`
   height: 6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 5 = 6em */
 `;
 
-const MainView = ({ title, overview }) => {
+const PostView = ({ title, overview, posterPath, movie }) => {
   return (
-    <MainViewBlock>
-      <BackgroundIMG src={BackgroundImage} alt="MainViewBackgroundImage" />
-      <MovieInfoBlock>
-        <MovieInfoTitle>{title}</MovieInfoTitle>
-        <MovieInfoOverview>{overview}</MovieInfoOverview>
-        <NetflixButtons />
-      </MovieInfoBlock>
-    </MainViewBlock>
+    <>
+      <MainViewBlock>
+        <BackgroundIMG
+          src={`https://image.tmdb.org/t/p/original/${posterPath}`}
+          alt="PostBackgroundImage"
+        />
+        <MovieInfoBlock>
+          <MovieInfoTitle>{title}</MovieInfoTitle>
+          <MovieInfoOverview>{overview}</MovieInfoOverview>
+          <NetflixButtons />
+        </MovieInfoBlock>
+      </MainViewBlock>
+      {movie.seasons &&
+        movie.seasons.map((season) => <Seasons season={season} />)}
+    </>
   );
 };
 
-export default MainView;
+export default PostView;
