@@ -15,7 +15,7 @@ const UnorderedList = styled.ul`
 `;
 const ListItem = styled.li`
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 
   & + & {

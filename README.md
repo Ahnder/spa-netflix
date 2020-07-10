@@ -2,12 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- tmdbAPI에 getGenres 라는 장르별 id를 통해 영화목록을 받아오는 함수 생성 <br />
-- modules/genres.js 생성 - 장르별영화 데이터 받아올수 있게 설정 <br />
-- GenresContainer를 통해 데이터를 component에 넘겨줄 수 있게 설정 <br />
-- 가져온 데이터로 movie.title 이 잘 출력되는지 확인 <br />
-- 카테고리를 클릭했을 시 각 카테고리에 설정된 장르에 맞는 영화리스트 출력 <br />
-- 현재 출력되는 장르의 카테고리에 색이 들어오도록 기능 개선 <br />
+- Genres MovieList 포스터 출력 <br />
+- Genres component (MovieList, Movie) css 세팅 <br />
 
 # :open_book: Netflix-Clone SPA Project
 
