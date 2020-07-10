@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### 커밋 업데이트 내용
 
 - 장르페이지 구조 설정 - GenresPage, GenresContainer, component(Categories, MovieList) <br />
+- lib/data/ 에 GenresCategories.js 파일 생성 장르 카테고리 데이터 설정 <br />
+- 장르별영화 페이지에 카테고리 목록 출력 - GenresComponent (Categories) <br />
 
 # :open_book: Netflix-Clone SPA Project
 
