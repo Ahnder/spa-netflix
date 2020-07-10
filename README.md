@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Genres MovieList 포스터 출력 <br />
 - Genres component (MovieList, Movie) css 세팅 <br />
+- LinkPost 와 PostView 컴포넌트를 사용 movie 도 tv 처럼 PostPage로 들어갈 수 있게 설정 <br />
+- modules/post 에 getMoviePost 함수와 모듈 기능 설정 <br />
+- tmdbAPI 에 getMoviePost함수 (movie 의 id로 영화의 정보를 가져오는) 추가 <br />
+- 라우터주소에 type 추가해서 qs라이브러리로 가져오게 설정 (PostPage) <br />
+- type(tv, movie) 에 따라서 PostContainer의 기능을 다르게 설정 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

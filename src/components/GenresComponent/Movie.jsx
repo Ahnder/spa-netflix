@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/* import common component */
+import PostLink from '../CommonComponent/PostComponent/PostLink';
+
 /* styled 설정 */
 const MovieBlock = styled.div`
   display: inline-block;
@@ -36,12 +39,14 @@ const Poster = styled.img`
   width: 95%;
 `;
 
-const Movie = ({ title, posterPath }) => {
+const Movie = ({ title, id, posterPath }) => {
   return (
-    <MovieBlock>
-      <Title>{title}</Title>
-      <Poster src={posterPath} alt="movie-poster" />
-    </MovieBlock>
+    <PostLink id={id} type="movie">
+      <MovieBlock>
+        <Title>{title}</Title>
+        <Poster src={posterPath} alt="movie-poster" />
+      </MovieBlock>
+    </PostLink>
   );
 };
 

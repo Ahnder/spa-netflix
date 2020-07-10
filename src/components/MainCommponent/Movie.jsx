@@ -36,7 +36,7 @@ const ImgBlock = styled.div`
 
 const Movie = ({ title, posterPath, id }) => {
   return (
-    <PostLink id={id}>
+    <PostLink id={id} type="tv">
       <MovieBlock>
         <h3>{title}</h3>
         <ImgBlock>

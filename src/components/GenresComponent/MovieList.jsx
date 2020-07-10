@@ -27,6 +27,7 @@ const MovieList = ({ movies, loading }) => {
           movies.map((movie) => (
             <Movie
               key={movie.id}
+              id={movie.id}
               title={movie.title}
               posterPath={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             />
