@@ -42,7 +42,7 @@ const ButtonRight = styled.div`
   }
 `;
 const ListTitle = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin-left: 1rem;
 `;
 const MovieList = styled.div`

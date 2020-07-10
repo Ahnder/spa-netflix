@@ -19,7 +19,6 @@ const genres = handleActions(
     [GET_GENRES_SUCCESS]: (state, { payload: genresData }) => ({
       ...state,
       genres: {
-        ...state.genres,
         movies: genresData.results,
       },
     }),

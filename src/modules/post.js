@@ -35,25 +35,21 @@ const post = handleActions(
     [GET_TVPOST_SUCCESS]: (state, action) => ({
       ...state,
       tvpost: {
-        ...state.tvpost,
         movies: action.payload,
       },
     }),
     [GET_MOVIEPOST_SUCCESS]: (state, action) => ({
       ...state,
       moviepost: {
-        ...state.moviepost,
         movies: action.payload,
       },
     }),
     [CLEAR_POST]: (state, action) => ({
       ...state,
       tvpost: {
-        ...state.tvpost,
         movies: null,
       },
       moviepost: {
-        ...state.moviepost,
         movies: null,
       },
     }),

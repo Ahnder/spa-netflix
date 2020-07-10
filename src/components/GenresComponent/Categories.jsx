@@ -6,6 +6,10 @@ const CategoriesBlock = styled.div`
   width: 100vw;
   padding-top: 100px;
 `;
+const PageName = styled.h1`
+  font-size: 3rem;
+  margin-left: 1.5%;
+`;
 const UnorderedList = styled.ul`
   width: 90%;
   margin-left: 3.8%;
@@ -33,6 +37,7 @@ const ListItem = styled.li`
 const Categories = ({ categories, onSelect, genreId }) => {
   return (
     <CategoriesBlock>
+      <PageName>장르별영화</PageName>
       <UnorderedList>
         {!categories && '카테고리 데이터가 존재하지 않습니다.'}
         {categories &&

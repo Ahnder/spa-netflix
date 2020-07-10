@@ -1,7 +1,10 @@
 import React from 'react';
 
+/* import container */
+import MyListContainer from '../containers/MyListContainer';
+
 const MyListPage = () => {
-  return <div>마이리스트</div>;
+  return <MyListContainer />;
 };
 
 export default MyListPage;
