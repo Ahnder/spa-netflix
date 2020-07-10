@@ -36,3 +36,13 @@ export const getTvPost = (id) =>
   axios.get(
     `https://api.themoviedb.org/3/tv/${id}?api_key=${MY_API_KEY}&language=en-US`,
   );
+
+/**
+ * GenreMovies
+ * API 주소
+ * https://api.themoviedb.org/3/discover/movie?api_key=7b2585c3179825537cb88b4d13b35e1c&with_genres=${id}
+ */
+export const getGenres = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${MY_API_KEY}&with_genres=${id}&language=en-US`,
+  );
