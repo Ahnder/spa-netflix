@@ -1,7 +1,10 @@
 import React from 'react';
 
+/* import container */
+import GenresContainer from '../containers/GenresContainer';
+
 const GenresPage = () => {
-  return <div>장르별영화</div>;
+  return <GenresContainer />;
 };
 
 export default GenresPage;

@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- 리팩토링 : PostLink 라는 Link 라우터를 설정하는 공통 컴포넌트를 생성 <br />
+- 장르페이지 구조 설정 - GenresPage, GenresContainer, component(Categories, MovieList) <br />
 
 # :open_book: Netflix-Clone SPA Project
 
