@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - modules/mylist 설정 : sessionStorage를 사용하여 INSERT, REMOVE 기능 설정 <br />
 - NetflixButtonsContainer를 새로 만들어 버튼컴포넌트에 클릭함수를 넘겨줌. <br />
 - INSERT 기능은 버튼컴포넌트에서 사용하므로 NetflixButtonsContainer에 설정 <br />
-- 현재 MyListContainer는 세션에 저장한 mylist 데이터만 가져오는것으로 설정 <br />
+- 현재 MyListContainer는 세션에 저장한 mylist 데이터만 가져오는 기능만 설정 <br />
+- MyListContainer에 onRemove 함수를 추가 : mylist에서 선택한 목록을 지우는 기능 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

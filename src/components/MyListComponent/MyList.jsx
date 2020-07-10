@@ -20,7 +20,7 @@ const MyListContents = styled.div`
   position: relative;
 `;
 
-const MyList = ({ mylist }) => {
+const MyList = ({ mylist, onRemove }) => {
   return (
     <MyListBlock>
       <MyListName>{`마이리스트 (${mylist.length})`}</MyListName>
@@ -31,6 +31,8 @@ const MyList = ({ mylist }) => {
             movie.title ? (
               <Movie
                 key={movie.id}
+                id={movie.id}
+                onRemove={onRemove}
                 title={movie.title}
                 overview={movie.overview}
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
@@ -38,6 +40,8 @@ const MyList = ({ mylist }) => {
             ) : (
               <Movie
                 key={movie.id}
+                id={movie.id}
+                onRemove={onRemove}
                 title={movie.name}
                 overview={movie.overview}
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}

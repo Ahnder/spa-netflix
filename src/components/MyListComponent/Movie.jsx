@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiX } from 'react-icons/fi';
 import styled from 'styled-components';
 
 /* styled 설정 */
@@ -33,8 +34,15 @@ const InfoBlock = styled.div`
     padding-bottom: 1rem;
   }
 `;
+const RemoveIconBlock = styled.div`
+  text-align: end;
 
-const Movie = ({ title, overview, posterPath }) => {
+  svg {
+    cursor: pointer;
+  }
+`;
+
+const Movie = ({ title, overview, posterPath, id, onRemove }) => {
   return (
     <MovieBlock>
       <PosterBlock>
@@ -44,6 +52,9 @@ const Movie = ({ title, overview, posterPath }) => {
         <h3>{title}</h3>
         <p>{overview}</p>
       </InfoBlock>
+      <RemoveIconBlock>
+        <FiX onClick={() => onRemove(id)} />
+      </RemoveIconBlock>
     </MovieBlock>
   );
 };
