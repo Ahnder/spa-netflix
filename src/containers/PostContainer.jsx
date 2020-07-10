@@ -3,11 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTvPost, clearPost } from '../modules/post';
 
 /* import component */
-import TvPost from '../components/PostComponent/TvPost';
 /* import common component */
 import PostView from '../components/CommonComponent/PostComponent/PostView';
 
-const TvPostContainer = ({ id }) => {
+const PostContainer = ({ id }) => {
   const { tvpost, loadingTvpost } = useSelector(({ post, loading }) => ({
     tvpost: post.tvpost.movies,
     loadingTvpost: loading.GET_TVPOST,
@@ -26,18 +25,19 @@ const TvPostContainer = ({ id }) => {
     return () => {
       dispatch(clearPost());
     };
-  }, [dispatch]);
-
-  if (!tvpost) return null;
+  }, [dispatch, id]);
 
   return (
-    <PostView
-      movie={tvpost}
-      title={tvpost.name}
-      overview={tvpost.overview}
-      posterPath={tvpost.backdrop_path}
-    />
+    <>
+      {loadingTvpost && '로딩 중...'}
+      <PostView
+        movie={tvpost}
+        title={tvpost.name}
+        overview={tvpost.overview}
+        posterPath={tvpost.backdrop_path}
+      />
+    </>
   );
 };
 
-export default TvPostContainer;
+export default PostContainer;

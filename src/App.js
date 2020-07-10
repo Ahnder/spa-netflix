@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import GenresPage from './pages/GenresPage';
 import MyListPage from './pages/MyListPage';
-import TvPostPage from './pages/TvPostPage';
+import PostPage from './pages/PostPage';
 /* import Navigation */
 import NavigationContainer from './containers/NavigationContainer';
 /* import Footer */
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" exact component={MainPage} />
         <Route path="/genres" component={GenresPage} />
         <Route path="/mylist" component={MyListPage} />
-        <Route path="/tv/:id" component={TvPostPage} />
+        <Route path="/post/:id" component={PostPage} />
       </div>
       <Footer />
     </>

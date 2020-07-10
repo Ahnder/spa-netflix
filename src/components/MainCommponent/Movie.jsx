@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
 /* import Common */
+import PostLink from '../CommonComponent/PostComponent/PostLink';
 
 /* styled 설정 */
 const MovieBlock = styled.div`
@@ -36,14 +36,14 @@ const ImgBlock = styled.div`
 
 const Movie = ({ title, posterPath, id }) => {
   return (
-    <Link to={`/tv/${id}`}>
+    <PostLink id={id}>
       <MovieBlock>
         <h3>{title}</h3>
         <ImgBlock>
           <img src={posterPath} alt="poster" />
         </ImgBlock>
       </MovieBlock>
-    </Link>
+    </PostLink>
   );
 };
 

@@ -59,7 +59,9 @@ const PostView = ({ title, overview, posterPath, movie }) => {
         </MovieInfoBlock>
       </MainViewBlock>
       {movie.seasons &&
-        movie.seasons.map((season) => <Seasons season={season} />)}
+        movie.seasons.map((season) => (
+          <Seasons season={season} posterPath={movie.poster_path} />
+        ))}
     </>
   );
 };

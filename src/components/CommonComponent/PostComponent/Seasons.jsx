@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SeasonName = styled.h1`
-  font-size: 2.5rem;
-`;
 const ListMovieBlock = styled.div`
   display: flex;
   flex-direction: row;
@@ -45,21 +42,14 @@ const MovieContents = styled.div`
 `;
 const TextInfo = styled.p`
   font-size: 1.5rem;
-  width: 70%;
+  width: 90%;
   & + & {
     padding-top: 1.5rem;
   }
 `;
 
-const Seasons = ({ season }) => {
-  const {
-    name,
-    overview,
-    poster_path,
-    season_number,
-    air_date,
-    episode_count,
-  } = season;
+const Seasons = ({ season, posterPath }) => {
+  const { name, overview, poster_path, air_date, episode_count } = season;
 
   if (!season) return null;
   console.log(season);
@@ -68,10 +58,17 @@ const Seasons = ({ season }) => {
     <>
       <ListMovieBlock>
         <PosterBlock>
-          <MoviePoster
-            src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-            alt="posterImg"
-          />
+          {poster_path ? (
+            <MoviePoster
+              src={`https://image.tmdb.org/t/p/original/${poster_path}`}
+              alt="posterImg"
+            />
+          ) : (
+            <MoviePoster
+              src={`https://image.tmdb.org/t/p/original/${posterPath}`}
+              alt="posterImg"
+            />
+          )}
         </PosterBlock>
         <MovieContents>
           <h3>{name}</h3>
