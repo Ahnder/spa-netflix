@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - MYLIST 페이지 구조 설정 (page, container, component) <br />
 - 더미데이터를 출력하여 MYLIST 페이지 css 설정 <br />
+- modules/mylist 설정 : sessionStorage를 사용하여 INSERT, REMOVE 기능 설정 <br />
+- NetflixButtonsContainer를 새로 만들어 버튼컴포넌트에 클릭함수를 넘겨줌. <br />
+- INSERT 기능은 버튼컴포넌트에서 사용하므로 NetflixButtonsContainer에 설정 <br />
+- 현재 MyListContainer는 세션에 저장한 mylist 데이터만 가져오는것으로 설정 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

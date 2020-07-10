@@ -1,22 +1,16 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 /* import component */
 import MyList from '../components/MyListComponent/MyList';
-
-import dummyData from '../lib/data/MainViewMovieInfo';
 
 /**
  *  MyListContainer
  */
 const MyListContainer = () => {
-  const { title, overview, backdrop_path } = dummyData;
-  return (
-    <MyList
-      title={title}
-      overview={overview}
-      posterPath={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-    />
-  );
+  const { mylist } = useSelector(({ mylist }) => ({
+    mylist: mylist.mylist,
+  }));
+  return <MyList mylist={mylist} />;
 };
 
 export default MyListContainer;

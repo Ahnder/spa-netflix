@@ -20,16 +20,30 @@ const MyListContents = styled.div`
   position: relative;
 `;
 
-const MyList = ({ title, overview, posterPath }) => {
+const MyList = ({ mylist }) => {
   return (
     <MyListBlock>
-      <MyListName>마이리스트</MyListName>
+      <MyListName>{`마이리스트 (${mylist.length})`}</MyListName>
       <MyListContents>
-        <Movie title={title} overview={overview} posterPath={posterPath} />
-        <Movie title={title} overview={overview} posterPath={posterPath} />
-        <Movie title={title} overview={overview} posterPath={posterPath} />
-        <Movie title={title} overview={overview} posterPath={posterPath} />
-        <Movie title={title} overview={overview} posterPath={posterPath} />
+        {!mylist && '마이리스트가 비어있습니다.'}
+        {mylist &&
+          mylist.map((movie) =>
+            movie.title ? (
+              <Movie
+                key={movie.id}
+                title={movie.title}
+                overview={movie.overview}
+                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              />
+            ) : (
+              <Movie
+                key={movie.id}
+                title={movie.name}
+                overview={movie.overview}
+                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              />
+            ),
+          )}
       </MyListContents>
     </MyListBlock>
   );

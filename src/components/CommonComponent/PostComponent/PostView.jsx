@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 /* import common component */
-import NetflixButtons from '../NetflixButtons/NetflixButtons';
+//import NetflixButtons from '../NetflixButtons/NetflixButtons';
+import NetflixButtonsContainer from '../../../containers/NetflixButtonsContainer';
 import Seasons from './Seasons';
 
 /* styled 설정 */
@@ -55,7 +56,7 @@ const PostView = ({ title, overview, posterPath, movie }) => {
         <MovieInfoBlock>
           <MovieInfoTitle>{title}</MovieInfoTitle>
           <MovieInfoOverview>{overview}</MovieInfoOverview>
-          <NetflixButtons />
+          <NetflixButtonsContainer movie={movie} />
         </MovieInfoBlock>
       </MainViewBlock>
       {movie.seasons &&
