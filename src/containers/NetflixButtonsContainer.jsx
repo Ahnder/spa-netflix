@@ -10,7 +10,11 @@ import { insertMyList } from '../modules/mylist';
 /**
  * NetflixButtonsContainer
  */
-const NetflixButtonsContainer = ({ movie, openDetailsModal }) => {
+const NetflixButtonsContainer = ({
+  movie,
+  openDetailsModal,
+  openVideoModal,
+}) => {
   const { mylist } = useSelector(({ mylist }) => ({
     mylist: mylist.mylist,
   }));
@@ -38,6 +42,7 @@ const NetflixButtonsContainer = ({ movie, openDetailsModal }) => {
       movie={movie}
       onInsert={onInsert}
       openDetailsModal={openDetailsModal}
+      openVideoModal={openVideoModal}
     />
   );
 };

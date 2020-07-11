@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTvPost, getMoviePost, clearPost } from '../modules/post';
+import {
+  getTvPost,
+  getMoviePost,
+  getTvVideo,
+  getMovieVideo,
+  clearPost,
+} from '../modules/post';
 
 /* import component */
 /* import common component */
@@ -14,21 +20,35 @@ import PostView from '../components/CommonComponent/PostComponent/PostView';
 
 const PostContainer = ({ id, type }) => {
   const [detailsModal, setDetailsModal] = useState(false);
+  const [videoModal, setVideoModal] = useState(false);
   const openDetailsModal = useCallback(() => {
     setDetailsModal(!detailsModal);
   }, [detailsModal]);
   const closeDetailsModal = useCallback(() => {
     setDetailsModal(!detailsModal);
   }, [detailsModal]);
+  const openVideoModal = useCallback(() => {
+    setVideoModal(!videoModal);
+  }, [videoModal]);
+  const closeVideoModal = useCallback(() => {
+    setVideoModal(!videoModal);
+  }, [videoModal]);
 
-  const { tvpost, moviepost, loadingTvpost, loadingMoviepost } = useSelector(
-    ({ post, loading }) => ({
-      tvpost: post.tvpost.movies,
-      moviepost: post.moviepost.movies,
-      loadingTvpost: loading.GET_TVPOST,
-      loadingMoviepost: loading.GET_MOVIEPOST,
-    }),
-  );
+  const {
+    tvpost,
+    moviepost,
+    videos,
+    loadingTvpost,
+    loadingMoviepost,
+    loadingVideos,
+  } = useSelector(({ post, loading }) => ({
+    tvpost: post.tvpost.movies,
+    moviepost: post.moviepost.movies,
+    videos: post.videos,
+    loadingTvpost: loading.GET_TVPOST,
+    loadingMoviepost: loading.GET_MOVIEPOST,
+    loadingVideos: loading.GET_VIDEO,
+  }));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,11 +61,25 @@ const PostContainer = ({ id, type }) => {
         console.log(e);
       }
     };
+    const fnVideo = async () => {
+      try {
+        type === 'tv'
+          ? await dispatch(getTvVideo(id))
+          : await dispatch(getMovieVideo(id));
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
     fn();
+    fnVideo();
     return () => {
       dispatch(clearPost());
     };
   }, [dispatch, id]);
+
+  if (!videos) return null;
+  console.log(videos);
 
   return (
     <>
@@ -55,6 +89,8 @@ const PostContainer = ({ id, type }) => {
           {!loadingTvpost && tvpost && (
             <PostView
               movie={tvpost}
+              id={id}
+              videoKey={videos[0].key}
               title={tvpost.name}
               overview={tvpost.overview}
               releaseDate={tvpost.first_air_date}
@@ -62,6 +98,10 @@ const PostContainer = ({ id, type }) => {
               detailsModal={detailsModal}
               openDetailsModal={openDetailsModal}
               closeDetailsModal={closeDetailsModal}
+              videoModal={videoModal}
+              loadingVideo={loadingVideos}
+              openVideoModal={openVideoModal}
+              closeVideoModal={closeVideoModal}
             />
           )}
         </>
@@ -70,14 +110,20 @@ const PostContainer = ({ id, type }) => {
           {loadingMoviepost && '로딩 중...'}
           {!loadingMoviepost && moviepost && (
             <PostView
+              id={id}
               movie={moviepost}
               title={moviepost.title}
+              videoKey={videos[0].key}
               overview={moviepost.overview}
               posterPath={`https://image.tmdb.org/t/p/original/${moviepost.backdrop_path}`}
               releaseDate={moviepost.release_date}
               detailsModal={detailsModal}
               openDetailsModal={openDetailsModal}
               closeDetailsModal={closeDetailsModal}
+              videoModal={videoModal}
+              loadingVideo={loadingVideos}
+              openVideoModal={openVideoModal}
+              closeVideoModal={closeVideoModal}
             />
           )}
         </>

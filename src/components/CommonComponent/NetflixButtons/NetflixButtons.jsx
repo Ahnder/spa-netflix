@@ -43,10 +43,15 @@ const NetflixButton = styled.button`
  * - PLAY, ADD MYLIST, DETAILS 세가지 버튼을 가짐
  * - react-icons/fi 에서 FiPlay, FiPlus, FiInfo 를 사용
  */
-const NetflixButtons = ({ movie, onInsert, openDetailsModal }) => {
+const NetflixButtons = ({
+  movie,
+  onInsert,
+  openDetailsModal,
+  openVideoModal,
+}) => {
   return (
     <ButtonBlock>
-      <NetflixButton>
+      <NetflixButton onClick={() => openVideoModal()}>
         <FiPlay />
         <span>PLAY</span>
       </NetflixButton>

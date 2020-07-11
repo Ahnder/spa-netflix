@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- DetailsModal 설정 <br />
-- 영화나 티비시리즈의 정보를 출력해주는 컴포넌트 <br />
-- PostView 화면에서 Details 버튼을 누를경우 화면에 출력 <br />
+- YoutubeModal component 추가 <br />
+- PLAY 버튼을 누르면 영화의 트레일러가 재생됨 <br />
+- PostContainer에서 id와 type을 받아서 video데이터를 가져온다. <br />
 
 # :open_book: Netflix-Clone SPA Project
 

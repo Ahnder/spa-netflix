@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import NetflixButtonsContainer from '../../../containers/NetflixButtonsContainer';
 import Seasons from './Seasons';
 import DetailsModal from '../ModalComponent/DetailsModal';
+import YoutubeModal from '../ModalComponent/YoutubeModal';
 
 /* styled 설정 */
 const MainViewBlock = styled.div`
@@ -51,10 +52,15 @@ const PostView = ({
   overview,
   posterPath,
   movie,
+  videoKey,
   releaseDate,
   detailsModal,
   openDetailsModal,
   closeDetailsModal,
+  videoModal,
+  loadingVideos,
+  openVideoModal,
+  closeVideoModal,
 }) => {
   return (
     <>
@@ -66,6 +72,7 @@ const PostView = ({
           <NetflixButtonsContainer
             movie={movie}
             openDetailsModal={openDetailsModal}
+            openVideoModal={openVideoModal}
           />
         </MovieInfoBlock>
       </MainViewBlock>
@@ -81,6 +88,13 @@ const PostView = ({
           releaseDate={releaseDate}
           posterPath={posterPath}
           closeModal={closeDetailsModal}
+        />
+      )}
+      {videoModal && (
+        <YoutubeModal
+          videoKey={videoKey}
+          loading={loadingVideos}
+          closeYouTubeModal={closeVideoModal}
         />
       )}
     </>
