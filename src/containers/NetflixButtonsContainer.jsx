@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 /* import component */
@@ -10,7 +10,7 @@ import { insertMyList } from '../modules/mylist';
 /**
  * NetflixButtonsContainer
  */
-const NetflixButtonsContainer = ({ movie }) => {
+const NetflixButtonsContainer = ({ movie, openDetailsModal }) => {
   const { mylist } = useSelector(({ mylist }) => ({
     mylist: mylist.mylist,
   }));
@@ -33,7 +33,13 @@ const NetflixButtonsContainer = ({ movie }) => {
     fn();
   }, [dispatch, mylist]);
 
-  return <NetflixButtons movie={movie} onInsert={onInsert} />;
+  return (
+    <NetflixButtons
+      movie={movie}
+      onInsert={onInsert}
+      openDetailsModal={openDetailsModal}
+    />
+  );
 };
 
 export default NetflixButtonsContainer;

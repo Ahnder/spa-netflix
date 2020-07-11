@@ -56,3 +56,18 @@ export const getGenres = (id) =>
   axios.get(
     `https://api.themoviedb.org/3/discover/movie?api_key=${MY_API_KEY}&with_genres=${id}&language=en-US`,
   );
+
+/**
+ * Get Video data
+ * id로 video data 를 가져오는 api
+ * https://api.themoviedb.org/3/movie/${id}/videos?api_key=7b2585c3179825537cb88b4d13b35e1c&language=en-US
+ */
+export const getMovieVideo = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MY_API_KEY}&language=en-US`,
+  );
+
+export const getTvVideo = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${MY_API_KEY}&language=en-US`,
+  );

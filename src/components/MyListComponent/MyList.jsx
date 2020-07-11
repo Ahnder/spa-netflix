@@ -7,6 +7,7 @@ import Movie from './Movie';
 /* styled 설정 */
 const MyListBlock = styled.div`
   padding-top: 100px;
+  min-height: 450px;
 `;
 const MyListName = styled.h1`
   font-size: 3rem;
@@ -19,13 +20,22 @@ const MyListContents = styled.div`
   width: 100%;
   position: relative;
 `;
+const EmptyText = styled.p`
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  top: 150px;
+`;
 
 const MyList = ({ mylist, onRemove }) => {
   return (
     <MyListBlock>
       <MyListName>{`마이리스트 (${mylist.length})`}</MyListName>
       <MyListContents>
-        {!mylist && '마이리스트가 비어있습니다.'}
+        {mylist.length === 0 && (
+          <EmptyText>마이리스트가 비어있습니다.</EmptyText>
+        )}
         {mylist &&
           mylist.map((movie) =>
             movie.title ? (

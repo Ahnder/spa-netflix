@@ -31,7 +31,7 @@ const MoviePoster = styled.img`
   z-index: 1;
 `;
 const MovieContents = styled.div`
-  flex: 2;
+  flex: 3;
   padding-left: 2rem;
   padding-right: 2rem;
 

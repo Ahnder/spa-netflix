@@ -5,6 +5,7 @@ import styled from 'styled-components';
 //import NetflixButtons from '../NetflixButtons/NetflixButtons';
 import NetflixButtonsContainer from '../../../containers/NetflixButtonsContainer';
 import Seasons from './Seasons';
+import DetailsModal from '../ModalComponent/DetailsModal';
 
 /* styled 설정 */
 const MainViewBlock = styled.div`
@@ -20,7 +21,7 @@ const MovieInfoBlock = styled.div`
   height: 50%;
   top: 50%;
   left: 5%;
-  z-index: 1;
+  z-index: 2;
   text-shadow: 0.5px 0 #111111, 0 0.5px #111111, 0.5px 0 #111111,
     0 0.5px #111111;
 `;
@@ -38,31 +39,50 @@ const MovieInfoOverview = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* 라인수 */
+  -webkit-line-clamp: 3; /* 라인수 */
   -webkit-box-orient: vertical;
   word-wrap: break-word;
   line-height: 1.2em;
-  height: 6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 5 = 6em */
+  height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
 `;
 
-const PostView = ({ title, overview, posterPath, movie }) => {
+const PostView = ({
+  title,
+  overview,
+  posterPath,
+  movie,
+  releaseDate,
+  detailsModal,
+  openDetailsModal,
+  closeDetailsModal,
+}) => {
   return (
     <>
       <MainViewBlock>
-        <BackgroundIMG
-          src={`https://image.tmdb.org/t/p/original/${posterPath}`}
-          alt="PostBackgroundImage"
-        />
+        <BackgroundIMG src={posterPath} alt="PostBackgroundImage" />
         <MovieInfoBlock>
           <MovieInfoTitle>{title}</MovieInfoTitle>
           <MovieInfoOverview>{overview}</MovieInfoOverview>
-          <NetflixButtonsContainer movie={movie} />
+          <NetflixButtonsContainer
+            movie={movie}
+            openDetailsModal={openDetailsModal}
+          />
         </MovieInfoBlock>
       </MainViewBlock>
       {movie.seasons &&
         movie.seasons.map((season) => (
           <Seasons season={season} posterPath={movie.poster_path} />
         ))}
+      {detailsModal && (
+        <DetailsModal
+          movie={movie}
+          title={title}
+          overview={overview}
+          releaseDate={releaseDate}
+          posterPath={posterPath}
+          closeModal={closeDetailsModal}
+        />
+      )}
     </>
   );
 };

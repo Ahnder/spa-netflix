@@ -25,7 +25,7 @@ const ModalBackgroundImg = styled.img`
   display: flex;
   width: 100%;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.4;
 `;
 const PostBlock = styled.div`
   padding: 2% 25%;
@@ -46,6 +46,11 @@ const Overview = styled.p`
   font-size: 1.2rem;
   text-transform: none;
 `;
+const Infoview = styled.p`
+  & + & {
+    padding-top: 3px;
+  }
+`;
 const CloseButtonBlock = styled.div`
   width: 95%;
   margin: 0 auto;
@@ -61,13 +66,20 @@ const CloseButtonBlock = styled.div`
 `;
 
 /**
- * PostModal
+ * DetailsModal
  * 리스트의 목록을 클릭했을 시 나타나는 화면
  * 영화의 title, overview, poster 를 출력해준다
  * 공통 컴포넌트의 NetflixButtons를 받아서 쓴다
  */
 
-const PostModal = ({ title, overview, posterPath, closeModal }) => {
+const DetailsModal = ({
+  movie,
+  title,
+  overview,
+  posterPath,
+  releaseDate,
+  closeModal,
+}) => {
   return (
     <ModalBlock>
       <ModalContents>
@@ -75,6 +87,21 @@ const PostModal = ({ title, overview, posterPath, closeModal }) => {
         <PostBlock>
           <Title>{title}</Title>
           <Overview>{overview}</Overview>
+          <Infoview>
+            <span>장르:</span>
+            {movie.genres.map((genre) => (
+              <span key={genre.id}>{` ${genre.name}`}</span>
+            ))}
+          </Infoview>
+          <Infoview>{`개봉일: ${releaseDate}`}</Infoview>
+          <Infoview>{`평점: ${movie.vote_average}`}</Infoview>
+          <Infoview>
+            <a
+              href={`${movie.homepage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >{`홈페이지: ${movie.homepage}`}</a>
+          </Infoview>
         </PostBlock>
       </ModalContents>
       <CloseButtonBlock onClick={() => closeModal()}>
@@ -84,4 +111,4 @@ const PostModal = ({ title, overview, posterPath, closeModal }) => {
   );
 };
 
-export default PostModal;
+export default DetailsModal;

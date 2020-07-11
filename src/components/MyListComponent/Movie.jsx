@@ -26,8 +26,8 @@ const Poster = styled.img`
 `;
 const InfoBlock = styled.div`
   flex: 2;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 
   h3 {
     font-size: 2rem;
