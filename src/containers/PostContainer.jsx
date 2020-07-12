@@ -89,6 +89,7 @@ const PostContainer = ({ id, type }) => {
           {!loadingTvpost && tvpost && (
             <PostView
               movie={tvpost}
+              type={type}
               id={id}
               videoKey={videos[0].key}
               title={tvpost.name}
@@ -112,6 +113,7 @@ const PostContainer = ({ id, type }) => {
             <PostView
               id={id}
               movie={moviepost}
+              type={type}
               title={moviepost.title}
               videoKey={videos[0].key}
               overview={moviepost.overview}

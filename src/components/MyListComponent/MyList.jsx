@@ -38,23 +38,23 @@ const MyList = ({ mylist, onRemove }) => {
         )}
         {mylist &&
           mylist.map((movie) =>
-            movie.title ? (
+            movie.data.title ? (
               <Movie
-                key={movie.id}
-                id={movie.id}
+                key={movie.data.id}
+                id={movie.data.id}
                 onRemove={onRemove}
-                title={movie.title}
-                overview={movie.overview}
-                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                title={movie.data.title}
+                overview={movie.data.overview}
+                posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
               />
             ) : (
               <Movie
-                key={movie.id}
-                id={movie.id}
+                key={movie.data.id}
+                id={movie.data.id}
                 onRemove={onRemove}
-                title={movie.name}
-                overview={movie.overview}
-                posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                title={movie.data.name}
+                overview={movie.data.overview}
+                posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
               />
             ),
           )}

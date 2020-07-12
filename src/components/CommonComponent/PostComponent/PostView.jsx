@@ -52,6 +52,7 @@ const PostView = ({
   overview,
   posterPath,
   movie,
+  type,
   videoKey,
   releaseDate,
   detailsModal,
@@ -71,6 +72,7 @@ const PostView = ({
           <MovieInfoOverview>{overview}</MovieInfoOverview>
           <NetflixButtonsContainer
             movie={movie}
+            type={type}
             openDetailsModal={openDetailsModal}
             openVideoModal={openVideoModal}
           />
