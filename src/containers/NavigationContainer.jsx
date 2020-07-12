@@ -20,4 +20,4 @@ const NavigationContainer = () => {
   return <Navigation scrollNav={scrollY} />;
 };
 
-export default NavigationContainer;
+export default React.memo(NavigationContainer);

@@ -17,13 +17,11 @@ const ListBlock = styled.div`
   margin: 0 auto;
 `;
 
-const MovieList = ({ movies, loading }) => {
+const MovieList = ({ movies }) => {
   return (
     <MovieListBlock>
       <ListBlock>
-        {loading && '로딩 중...'}
-        {!loading &&
-          movies &&
+        {movies &&
           movies.map((movie) => (
             <Movie
               key={movie.id}

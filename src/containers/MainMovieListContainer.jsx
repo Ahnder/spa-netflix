@@ -14,14 +14,10 @@ import MainMovieList from '../components/MainCommponent/MainMovieList';
  */
 
 const MainMovieListContainer = () => {
-  const { netflix, tvtrend, loadingNetflix, loadingTvtrend } = useSelector(
-    ({ mainlist, loading }) => ({
-      netflix: mainlist.netflix,
-      tvtrend: mainlist.tvtrend,
-      loadingNetflix: loading.GET_NETFLIX,
-      loadingTvtrend: loading.GET_TVTRENDING,
-    }),
-  );
+  const { netflix, tvtrend } = useSelector(({ mainlist }) => ({
+    netflix: mainlist.netflix,
+    tvtrend: mainlist.tvtrend,
+  }));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,18 +34,10 @@ const MainMovieListContainer = () => {
 
   return (
     <>
-      <MainMovieList
-        listName="NETFLIX_ORIGINAL"
-        movies={netflix}
-        loading={loadingNetflix}
-      />
-      <MainMovieList
-        listName="TV_TRENDING"
-        movies={tvtrend}
-        loading={loadingTvtrend}
-      />
+      <MainMovieList listName="NETFLIX_ORIGINAL" movies={netflix} />
+      <MainMovieList listName="TV_TRENDING" movies={tvtrend} />
     </>
   );
 };
 
-export default MainMovieListContainer;
+export default React.memo(MainMovieListContainer);

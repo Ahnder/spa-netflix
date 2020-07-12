@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 /* import common component */
@@ -55,14 +55,19 @@ const PostView = ({
   type,
   videoKey,
   releaseDate,
-  detailsModal,
-  openDetailsModal,
-  closeDetailsModal,
-  videoModal,
-  loadingVideos,
-  openVideoModal,
-  closeVideoModal,
 }) => {
+  const [youtubeModal, setYoutubeModal] = useState(false);
+  const [detailsModal, setDetailsModal] = useState(false);
+
+  const changeYoutubeModal = useCallback(
+    () => setYoutubeModal((youtubeModal) => !youtubeModal),
+    [],
+  );
+  const changeDetailsModal = useCallback(
+    () => setDetailsModal((detailsModal) => !detailsModal),
+    [],
+  );
+
   return (
     <>
       <MainViewBlock>
@@ -73,8 +78,8 @@ const PostView = ({
           <NetflixButtonsContainer
             movie={movie}
             type={type}
-            openDetailsModal={openDetailsModal}
-            openVideoModal={openVideoModal}
+            openDetailsModal={changeDetailsModal}
+            openVideoModal={changeYoutubeModal}
           />
         </MovieInfoBlock>
       </MainViewBlock>
@@ -89,14 +94,13 @@ const PostView = ({
           overview={overview}
           releaseDate={releaseDate}
           posterPath={posterPath}
-          closeModal={closeDetailsModal}
+          closeModal={changeDetailsModal}
         />
       )}
-      {videoModal && (
+      {youtubeModal && (
         <YoutubeModal
           videoKey={videoKey}
-          loading={loadingVideos}
-          closeYouTubeModal={closeVideoModal}
+          closeYouTubeModal={changeYoutubeModal}
         />
       )}
     </>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 /* import component */
@@ -50,4 +50,4 @@ const NetflixButtonsContainer = ({
   );
 };
 
-export default NetflixButtonsContainer;
+export default React.memo(NetflixButtonsContainer);

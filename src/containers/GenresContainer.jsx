@@ -13,9 +13,8 @@ import GenresCategories from '../lib/data/GenreCategories';
 
 const GenresContainer = () => {
   const [genreId, setGenreId] = useState(GenresCategories[0].id);
-  const { genres, loadingGenres } = useSelector(({ genres, loading }) => ({
+  const { genres } = useSelector(({ genres }) => ({
     genres: genres.genres.movies,
-    loadingGenres: loading.GET_GENRES,
   }));
   const dispatch = useDispatch();
 
@@ -41,9 +40,9 @@ const GenresContainer = () => {
         onSelect={selectGenre}
         genreId={genreId}
       />
-      <MovieList movies={genres} loading={loadingGenres} />
+      <MovieList movies={genres} />
     </>
   );
 };
 
-export default GenresContainer;
+export default React.memo(GenresContainer);

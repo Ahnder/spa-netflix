@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   getTvPost,
@@ -19,35 +19,10 @@ import PostView from '../components/CommonComponent/PostComponent/PostView';
  */
 
 const PostContainer = ({ id, type }) => {
-  const [detailsModal, setDetailsModal] = useState(false);
-  const [videoModal, setVideoModal] = useState(false);
-  const openDetailsModal = useCallback(() => {
-    setDetailsModal(!detailsModal);
-  }, [detailsModal]);
-  const closeDetailsModal = useCallback(() => {
-    setDetailsModal(!detailsModal);
-  }, [detailsModal]);
-  const openVideoModal = useCallback(() => {
-    setVideoModal(!videoModal);
-  }, [videoModal]);
-  const closeVideoModal = useCallback(() => {
-    setVideoModal(!videoModal);
-  }, [videoModal]);
-
-  const {
-    tvpost,
-    moviepost,
-    videos,
-    loadingTvpost,
-    loadingMoviepost,
-    loadingVideos,
-  } = useSelector(({ post, loading }) => ({
+  const { tvpost, moviepost, videos } = useSelector(({ post }) => ({
     tvpost: post.tvpost.movies,
     moviepost: post.moviepost.movies,
     videos: post.videos,
-    loadingTvpost: loading.GET_TVPOST,
-    loadingMoviepost: loading.GET_MOVIEPOST,
-    loadingVideos: loading.GET_VIDEO,
   }));
   const dispatch = useDispatch();
 
@@ -78,15 +53,11 @@ const PostContainer = ({ id, type }) => {
     };
   }, [dispatch, id]);
 
-  if (!videos) return null;
-  console.log(videos);
-
   return (
     <>
       {type === 'tv' ? (
         <>
-          {loadingTvpost && '로딩 중...'}
-          {!loadingTvpost && tvpost && (
+          {tvpost && videos && (
             <PostView
               movie={tvpost}
               type={type}
@@ -96,20 +67,12 @@ const PostContainer = ({ id, type }) => {
               overview={tvpost.overview}
               releaseDate={tvpost.first_air_date}
               posterPath={`https://image.tmdb.org/t/p/original/${tvpost.backdrop_path}`}
-              detailsModal={detailsModal}
-              openDetailsModal={openDetailsModal}
-              closeDetailsModal={closeDetailsModal}
-              videoModal={videoModal}
-              loadingVideo={loadingVideos}
-              openVideoModal={openVideoModal}
-              closeVideoModal={closeVideoModal}
             />
           )}
         </>
       ) : (
         <>
-          {loadingMoviepost && '로딩 중...'}
-          {!loadingMoviepost && moviepost && (
+          {moviepost && videos && (
             <PostView
               id={id}
               movie={moviepost}
@@ -119,13 +82,6 @@ const PostContainer = ({ id, type }) => {
               overview={moviepost.overview}
               posterPath={`https://image.tmdb.org/t/p/original/${moviepost.backdrop_path}`}
               releaseDate={moviepost.release_date}
-              detailsModal={detailsModal}
-              openDetailsModal={openDetailsModal}
-              closeDetailsModal={closeDetailsModal}
-              videoModal={videoModal}
-              loadingVideo={loadingVideos}
-              openVideoModal={openVideoModal}
-              closeVideoModal={closeVideoModal}
             />
           )}
         </>
@@ -134,4 +90,4 @@ const PostContainer = ({ id, type }) => {
   );
 };
 
-export default PostContainer;
+export default React.memo(PostContainer);

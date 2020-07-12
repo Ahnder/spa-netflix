@@ -15,4 +15,4 @@ const MainViewContainer = () => {
   );
 };
 
-export default MainViewContainer;
+export default React.memo(MainViewContainer);

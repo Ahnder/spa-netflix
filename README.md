@@ -2,9 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- YoutubeModal component 추가 <br />
-- PLAY 버튼을 누르면 영화의 트레일러가 재생됨 <br />
-- PostContainer에서 id와 type을 받아서 video데이터를 가져온다. <br />
+- 컨테이너 기능들 최적화 설정 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

@@ -34,4 +34,4 @@ const MyListContainer = () => {
   return <MyList mylist={mylist} onRemove={onRemove} />;
 };
 
-export default MyListContainer;
+export default React.memo(MyListContainer);
