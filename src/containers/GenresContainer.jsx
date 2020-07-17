@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 /* import module */
-import { getGenres } from '../modules/genres';
+import { getGenres } from '../modules/mainlist';
 
 /* import component */
 import Categories from '../components/GenresComponent/Categories';
@@ -13,8 +13,8 @@ import GenresCategories from '../lib/data/GenreCategories';
 
 const GenresContainer = () => {
   const [genreId, setGenreId] = useState(GenresCategories[0].id);
-  const { genres } = useSelector(({ genres }) => ({
-    genres: genres.genres.movies,
+  const { genres } = useSelector(({ mainlist }) => ({
+    genres: mainlist.genres,
   }));
   const dispatch = useDispatch();
 

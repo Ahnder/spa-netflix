@@ -27,27 +27,17 @@ const PostContainer = ({ id, type }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fn = async () => {
+    const fn = async (requestTv, requestMovie) => {
       try {
         type === 'tv'
-          ? await dispatch(getTvPost(id))
-          : await dispatch(getMoviePost(id));
+          ? await dispatch(requestTv)
+          : await dispatch(requestMovie);
       } catch (e) {
         console.log(e);
       }
     };
-    const fnVideo = async () => {
-      try {
-        type === 'tv'
-          ? await dispatch(getTvVideo(id))
-          : await dispatch(getMovieVideo(id));
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    fn();
-    fnVideo();
+    fn(getTvPost(id), getMoviePost(id));
+    fn(getTvVideo(id), getMovieVideo(id));
     return () => {
       dispatch(clearPost());
     };

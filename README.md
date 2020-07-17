@@ -2,7 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- 컨테이너 기능들 최적화 설정 <br />
+- 리팩토링 <br />
+- PostContainer useEffect 안의 fn 함수 중복 제거 <br />
+- 기능이 비슷한 모듈인 mainlist 와 genres 를 통합하여 mainlist에서 기능 관리 genres.js 삭제 <br />
+- 통합한 모듈에 맞게 genresContainer에서 genres 모듈을 mainlist 모듈에 맞게 변경 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

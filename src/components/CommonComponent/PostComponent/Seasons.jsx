@@ -41,7 +41,7 @@ const MovieContents = styled.div`
   }
 `;
 const TextInfo = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   width: 90%;
   & + & {
     padding-top: 1.5rem;
