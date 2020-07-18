@@ -55,7 +55,7 @@ const NetflixButtons = ({
         <FiPlay />
         <span>PLAY</span>
       </NetflixButton>
-      <NetflixButton onClick={() => onInsert()}>
+      <NetflixButton onClick={() => onInsert(movie)}>
         <FiPlus />
         <span>MYLIST</span>
       </NetflixButton>

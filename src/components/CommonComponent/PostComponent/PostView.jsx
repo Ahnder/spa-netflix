@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 /* import common component */
 //import NetflixButtons from '../NetflixButtons/NetflixButtons';
-import NetflixButtonsContainer from '../../../containers/NetflixButtonsContainer';
+import NetflixButtons from '../NetflixButtons/NetflixButtons';
 import Seasons from './Seasons';
 import DetailsModal from '../ModalComponent/DetailsModal';
 import YoutubeModal from '../ModalComponent/YoutubeModal';
@@ -55,6 +55,7 @@ const PostView = ({
   type,
   videoKey,
   releaseDate,
+  onInsert,
 }) => {
   const [youtubeModal, setYoutubeModal] = useState(false);
   const [detailsModal, setDetailsModal] = useState(false);
@@ -75,9 +76,9 @@ const PostView = ({
         <MovieInfoBlock>
           <MovieInfoTitle>{title}</MovieInfoTitle>
           <MovieInfoOverview>{overview}</MovieInfoOverview>
-          <NetflixButtonsContainer
+          <NetflixButtons
             movie={movie}
-            type={type}
+            onInsert={onInsert}
             openDetailsModal={changeDetailsModal}
             openVideoModal={changeYoutubeModal}
           />
