@@ -2,6 +2,8 @@ import React from 'react';
 import { FiX } from 'react-icons/fi';
 import styled from 'styled-components';
 
+import YoutubeModal from '../CommonComponent/ModalComponent/YoutubeModal';
+
 /* styled 설정 */
 const MovieBlock = styled.div`
   display: flex;
@@ -42,20 +44,44 @@ const RemoveIconBlock = styled.div`
   }
 `;
 
-const Movie = ({ title, overview, posterPath, id, onRemove }) => {
+const Movie = ({
+  title,
+  overview,
+  posterPath,
+  id,
+  type,
+  onRemove,
+  videokey,
+  onVideo,
+  youtubeModal,
+  changeYoutubeModal,
+}) => {
   return (
-    <MovieBlock>
-      <PosterBlock>
-        <Poster src={posterPath} alt="mylist-movie-poster" />
-      </PosterBlock>
-      <InfoBlock>
-        <h3>{title}</h3>
-        <p>{overview}</p>
-      </InfoBlock>
-      <RemoveIconBlock>
-        <FiX onClick={() => onRemove(id)} />
-      </RemoveIconBlock>
-    </MovieBlock>
+    <>
+      <MovieBlock>
+        <PosterBlock
+          onClick={() => {
+            onVideo(id, type);
+            changeYoutubeModal();
+          }}
+        >
+          <Poster src={posterPath} alt="mylist-movie-poster" />
+        </PosterBlock>
+        <InfoBlock>
+          <h3>{title}</h3>
+          <p>{overview}</p>
+        </InfoBlock>
+        <RemoveIconBlock>
+          <FiX onClick={() => onRemove(id)} />
+        </RemoveIconBlock>
+      </MovieBlock>
+      {youtubeModal && (
+        <YoutubeModal
+          videoKey={videokey}
+          closeYouTubeModal={changeYoutubeModal}
+        />
+      )}
+    </>
   );
 };
 

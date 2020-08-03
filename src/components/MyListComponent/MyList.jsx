@@ -28,7 +28,14 @@ const EmptyText = styled.p`
   top: 150px;
 `;
 
-const MyList = ({ mylist, onRemove }) => {
+const MyList = ({
+  mylist,
+  onRemove,
+  videokey,
+  onVideo,
+  youtubeModal,
+  changeYoutubeModal,
+}) => {
   return (
     <MyListBlock>
       <MyListName>{`마이리스트 (${mylist.length})`}</MyListName>
@@ -42,19 +49,29 @@ const MyList = ({ mylist, onRemove }) => {
               <Movie
                 key={movie.data.id}
                 id={movie.data.id}
+                type={movie.type}
                 onRemove={onRemove}
                 title={movie.data.title}
                 overview={movie.data.overview}
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
+                videokey={videokey}
+                onVideo={onVideo}
+                youtubeModal={youtubeModal}
+                changeYoutubeModal={changeYoutubeModal}
               />
             ) : (
               <Movie
                 key={movie.data.id}
                 id={movie.data.id}
+                type={movie.type}
                 onRemove={onRemove}
                 title={movie.data.name}
                 overview={movie.data.overview}
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
+                videokey={videokey}
+                onVideo={onVideo}
+                youtubeModal={youtubeModal}
+                changeYoutubeModal={changeYoutubeModal}
               />
             ),
           )}

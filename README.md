@@ -2,9 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 커밋 업데이트 내용
 
-- 리팩토링 <br />
-- PostContainer 에 onInsert 함수 추가(useCallback 사용) <br />
-- onInsert를 PostContainer에서 관리하므로 NetflixButtonsContainer는 삭제 <br />
+- 마이리스트 목록에서 썸네일 클릭 시 비디오화면 출력 기능 추가 <br />
+- MyListContainer에 클릭한 비디오 정보를 가져오는 onVideo 함수 추가 <br />
+- MyListContainer에 유튜브 모달 기능을 위한 youtubeModal 과 changeYoutubeModal 함수 추가 <br />
+- mylist에서 type을 가져와 tv와 movie를 구분하여 알맞는 함수를 지정 <br />
 
 # :open_book: Netflix-Clone SPA Project
 
