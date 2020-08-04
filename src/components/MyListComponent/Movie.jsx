@@ -77,7 +77,7 @@ const Movie = ({
       </MovieBlock>
       {youtubeModal && (
         <YoutubeModal
-          videoKey={videokey}
+          videokey={videokey}
           closeYouTubeModal={changeYoutubeModal}
         />
       )}

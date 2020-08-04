@@ -35,7 +35,7 @@ const MyListContainer = () => {
 
   /* 
     mylist : 마이리스트 화면 구성을 위해 mylist에서 목록을 가져와서 출력 
-    
+
     videokey : videos에서 클릭한 영화에 맞는 비디오키를 가져온다  
   */
   const { mylist, videokey } = useSelector(({ mylist, videos }) => ({

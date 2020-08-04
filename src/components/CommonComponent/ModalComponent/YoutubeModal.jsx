@@ -37,7 +37,7 @@ const CloseIconBlock = styled.div`
   }
 `;
 
-const YoutubeModal = ({ videoKey, loading, closeYouTubeModal }) => {
+const YoutubeModal = ({ videokey, loading, closeYouTubeModal }) => {
   const opts = {
     width: '640',
     height: '390',
@@ -54,7 +54,7 @@ const YoutubeModal = ({ videoKey, loading, closeYouTubeModal }) => {
       {loading && '로딩 중...'}
       {!loading && (
         <YoutubeWrapper>
-          <Youtube videoId={videoKey} opts={opts} />
+          <Youtube videoId={videokey} opts={opts} />
         </YoutubeWrapper>
       )}
     </YoutubeBlock>

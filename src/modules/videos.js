@@ -25,7 +25,7 @@ const videos = handleActions(
       ...state,
       videokey: action.payload.results[0].key,
     }),
-    [CLEAR_VIDEOKEY]: (state) => ({
+    [CLEAR_VIDEOKEY]: (state, action) => ({
       ...state,
       videokey: null,
     }),

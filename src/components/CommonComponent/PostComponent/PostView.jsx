@@ -53,7 +53,7 @@ const PostView = ({
   posterPath,
   movie,
   type,
-  videoKey,
+  videokey,
   releaseDate,
   onInsert,
 }) => {
@@ -100,7 +100,7 @@ const PostView = ({
       )}
       {youtubeModal && (
         <YoutubeModal
-          videoKey={videoKey}
+          videokey={videokey}
           closeYouTubeModal={changeYoutubeModal}
         />
       )}
