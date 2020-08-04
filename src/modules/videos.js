@@ -2,31 +2,31 @@ import { createAction, handleActions } from 'redux-actions';
 import createRequestThunk from '../lib/util/createRequestThunk';
 import * as api from '../lib/api/tmdb_api';
 
-const GET_VIDEO = 'vidoes/GET_VIDEO';
-const GET_VIDEO_SUCCESS = 'vidoes/GET_VIDEO_SUCCESS';
+const GET_VIDEOKEY = 'vidoes/GET_VIDEOKEY';
+const GET_VIDEOKEY_SUCCESS = 'vidoes/GET_VIDEOKEY_SUCCESS';
 
-const CLEAR_VIDEO = 'vidoes/CLEAR_VIDEO';
+const CLEAR_VIDEOKEY = 'vidoes/CLEAR_VIDEOKEY';
 
-export const getTvVideo = createRequestThunk(GET_VIDEO, api.getTvVideo);
-export const getMovieVideo = createRequestThunk(GET_VIDEO, api.getMovieVideo);
+export const getTvVideoKey = createRequestThunk(GET_VIDEOKEY, api.getTvVideo);
+export const getMovieVideoKey = createRequestThunk(
+  GET_VIDEOKEY,
+  api.getMovieVideo,
+);
 
-export const clearVideo = createAction(CLEAR_VIDEO);
+export const clearVideoKey = createAction(CLEAR_VIDEOKEY);
 
 const initialState = {
-  videos: null,
   videokey: null,
 };
 
 const videos = handleActions(
   {
-    [GET_VIDEO_SUCCESS]: (state, action) => ({
+    [GET_VIDEOKEY_SUCCESS]: (state, action) => ({
       ...state,
-      videos: action.payload.results,
       videokey: action.payload.results[0].key,
     }),
-    [CLEAR_VIDEO]: (state) => ({
+    [CLEAR_VIDEOKEY]: (state) => ({
       ...state,
-      videos: null,
       videokey: null,
     }),
   },
