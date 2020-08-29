@@ -102,6 +102,7 @@ const PostView = ({
         <YoutubeModal
           videokey={videokey}
           closeYouTubeModal={changeYoutubeModal}
+          clearVideo={null}
         />
       )}
     </>

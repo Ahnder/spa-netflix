@@ -13,7 +13,7 @@ const MainViewBlock = styled.div`
   width: 100vw;
 `;
 const BackgroundIMG = styled.img`
-  width: 100%;
+  width: 100vw;
 `;
 const MovieInfoBlock = styled.div`
   position: absolute;
@@ -53,7 +53,7 @@ const MainView = ({ title, overview }) => {
       <MovieInfoBlock>
         <MovieInfoTitle>{title}</MovieInfoTitle>
         <MovieInfoOverview>{overview}</MovieInfoOverview>
-        <NetflixButtons />
+        <NetflixButtons mainview={true} />
       </MovieInfoBlock>
     </MainViewBlock>
   );

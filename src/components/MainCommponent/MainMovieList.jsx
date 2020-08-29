@@ -11,6 +11,9 @@ const MovieListBlock = styled.div`
   margin: 1rem 0;
   overflow: hidden;
   position: relative;
+  & + & {
+    margin-top: 2rem;
+  }
 `;
 const ButtonLeft = styled.div`
   font-size: 4rem;
@@ -42,7 +45,7 @@ const ButtonRight = styled.div`
   }
 `;
 const ListTitle = styled.h1`
-  font-size: 2.6rem;
+  font-size: 1.8rem;
   margin-left: 1rem;
 `;
 const MovieList = styled.div`
@@ -57,7 +60,7 @@ const MovieList = styled.div`
  */
 
 const MainMovieList = ({ movies, listName }) => {
-  const TOTAL_SLIDES = 4; // movies에 20개의 항목이 들어있으므로 4로 설정
+  const TOTAL_SLIDES = 3; // movies에 20개의 항목이 들어있으므로 3으로 설정(0, 1, 2, 3 으로 4개의 슬라이드)
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
@@ -90,6 +93,7 @@ const MainMovieList = ({ movies, listName }) => {
                 <Movie
                   key={movie.id}
                   id={movie.id}
+                  type={'movie'}
                   overview={movie.overview}
                   title={movie.title}
                   posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
@@ -98,6 +102,7 @@ const MainMovieList = ({ movies, listName }) => {
                 <Movie
                   key={movie.id}
                   id={movie.id}
+                  type={'tv'}
                   overview={movie.overview}
                   title={movie.name}
                   posterPath={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}

@@ -92,18 +92,35 @@ const MyListContainer = () => {
         }
       };
       fn();
-      return () => {
-        dispatch(clearVideoKey());
-      };
     },
     [dispatch],
   );
+
+  /* 
+    clearVideo
+
+    유튜브 화면을 닫을 때 저장된 비디오 키를 삭제하여 다음 유트브 재생 시
+    이전 비디오 정보가 남아있지 않게 하는 함수
+
+    YoutubeModal의 닫기 기능에 추가
+  */
+  const clearVideo = useCallback(() => {
+    const fn = async () => {
+      try {
+        await dispatch(clearVideoKey());
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fn();
+  }, [dispatch]);
 
   return (
     <MyList
       mylist={mylist}
       videokey={videokey}
       onVideo={onVideo}
+      clearVideo={clearVideo}
       onRemove={onRemove}
       youtubeModal={youtubeModal}
       changeYoutubeModal={changeYoutubeModal}

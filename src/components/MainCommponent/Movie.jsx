@@ -8,7 +8,8 @@ import PostLink from '../CommonComponent/PostComponent/PostLink';
 const MovieBlock = styled.div`
   cursor: pointer;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    z-index: 3;
   }
 
   h3 {
@@ -30,13 +31,13 @@ const MovieBlock = styled.div`
 const ImgBlock = styled.div`
   img {
     z-index: 1;
-    width: 25vw;
+    width: 20vw;
   }
 `;
 
-const Movie = ({ title, posterPath, id }) => {
+const Movie = ({ title, posterPath, id, type }) => {
   return (
-    <PostLink id={id} type="tv">
+    <PostLink id={id} type={type}>
       <MovieBlock>
         <h3>{title}</h3>
         <ImgBlock>

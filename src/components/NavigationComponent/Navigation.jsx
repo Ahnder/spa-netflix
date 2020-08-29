@@ -73,10 +73,16 @@ const Navigation = ({ scrollNav }) => {
           <Link to="/">홈</Link>
         </LinkBlock>
         <LinkBlock>
-          <Link to="/genres">장르별영화</Link>
+          <Link to="#">TV프로그램</Link>
         </LinkBlock>
         <LinkBlock>
-          <Link to="/mylist">마이리스트</Link>
+          <Link to="/genres">영화</Link>
+        </LinkBlock>
+        <LinkBlock>
+          <Link to="#">최신 콘텐츠</Link>
+        </LinkBlock>
+        <LinkBlock>
+          <Link to="/mylist">내가 찜한 콘텐츠</Link>
         </LinkBlock>
       </LeftNavMenu>
       <RightNavMenu>

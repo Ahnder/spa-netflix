@@ -5,15 +5,21 @@ import createRequestThunk from '../lib/util/createRequestThunk';
 
 /**
  * GET_NETFLIX : 넷플릭스 오리지널 시리즈 데이터를 가져온다.
- * GET_TVTRENDING : 일주일동안 인기있는 TV 시리즈 데이터를 가져온다.
+ * GET_ALLTRENDING : 일주일동안 인기있는 콘텐츠 데이터를 가져온다.
  * GET_GENRES : 장르별 영화 데이터를 가져온다.
  */
 
 const GET_NETFLIX = 'mainlist/GET_NETFLIX';
 const GET_NETFLIX_SUCCESS = 'mainlist/GET_NETFLIX_SUCCESS';
 
-const GET_TVTRENDING = 'mainlist/GET_TVTRENDING';
-const GET_TVTRENDING_SUCCESS = 'mainlist/GET_TVTRENDING_SUCCESS';
+const GET_ALLTRENDING = 'mainlist/GET_ALLTRENDING';
+const GET_ALLTRENDING_SUCCESS = 'mainlist/GET_ALLTRENDING_SUCCESS';
+
+const GET_TVPOPULAR = 'mainlist/GET_TVPOPULAR';
+const GET_TVPOPULAR_SUCCESS = 'mainlist/GET_TVPOPULAR_SUCCESS';
+
+const GET_MOVIEPOPULAR = 'mainlist/GET_MOVIEPOPULAR';
+const GET_MOVIEPOPULAR_SUCCESS = 'mainlist/GET_MOVIEPOPULAR_SUCCESS';
 
 const GET_GENRES = 'genres/GET_GENRES';
 const GET_GENRES_SUCCESS = 'genres/GET_GENRES_SUCCESS';
@@ -24,9 +30,14 @@ export const getNetflix = createRequestThunk(
   GET_NETFLIX,
   api.getNetflixoriginal,
 );
-export const getTvTrending = createRequestThunk(
-  GET_TVTRENDING,
-  api.getTvTrending,
+export const getAllTrending = createRequestThunk(
+  GET_ALLTRENDING,
+  api.getAllTrending,
+);
+export const getTvPopular = createRequestThunk(GET_TVPOPULAR, api.getTvPopular);
+export const getMoviePopular = createRequestThunk(
+  GET_MOVIEPOPULAR,
+  api.getMoviePopular,
 );
 export const getGenres = createRequestThunk(GET_GENRES, api.getGenres);
 
@@ -34,7 +45,9 @@ export const getGenres = createRequestThunk(GET_GENRES, api.getGenres);
 // 요청의 로딩 중 상태는 loading 이라는 객체에서 관리
 const initialState = {
   netflix: null,
-  tvtrend: null,
+  alltrend: null,
+  tvpopular: null,
+  moviepopular: null,
   genres: null,
 };
 
@@ -44,9 +57,17 @@ const mainlist = handleActions(
       ...state,
       netflix: netflixData.results, // results 는 tmdb 데이터 변수
     }),
-    [GET_TVTRENDING_SUCCESS]: (state, { payload: tvtrendData }) => ({
+    [GET_ALLTRENDING_SUCCESS]: (state, { payload: alltrendData }) => ({
       ...state,
-      tvtrend: tvtrendData.results,
+      alltrend: alltrendData.results,
+    }),
+    [GET_TVPOPULAR_SUCCESS]: (state, { payload: tvpopularData }) => ({
+      ...state,
+      tvpopular: tvpopularData.results,
+    }),
+    [GET_MOVIEPOPULAR_SUCCESS]: (state, { payload: moviepopularData }) => ({
+      ...state,
+      moviepopular: moviepopularData.results,
     }),
     [GET_GENRES_SUCCESS]: (state, { payload: genresData }) => ({
       ...state,

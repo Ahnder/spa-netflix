@@ -3,14 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### 커밋 업데이트 내용
 
 - 리팩토링 <br />
-- modules/videos 에서 각 함수 이름에 key를 붙여서 명확하게 기능을 알 수 있게 변경 <br />
-- MyListContainer에 기능들에 대한 설명 추가 <br />
-- 비디오 관련 기능을 modules/videos에서 관리하도록 변경 <br />
-- modules/post 에서 비디오정보를 가져오던 기능을 제거 <br />
-- PostContainer에서 비디오정보를 기능을 삭제한 modules/post 대신 modules/videos에서 가져오게 변경 <br />
-- PostContainer에 기능들에 대한 설명 추가 <br />
-- 현재 마이리스트에서 유튜브화면을 켤때 전에 눌렀었던 비디오 정보가 남아있어서 현재 비디오화면이 뜨기전에
-  이전 정보가 먼저 출력되고 현재 정보로 바뀌고 있음 리팩토링 필요 <br />
+- 넷플릭스의 최신 UI에 맞게 디자인과 위치 변경 <br />
+- 메인화면에 콘텐츠 리스트 추가 <br />
 
 # :open_book: Netflix-Clone SPA Project
 

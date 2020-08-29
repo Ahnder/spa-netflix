@@ -33,6 +33,7 @@ const MyList = ({
   onRemove,
   videokey,
   onVideo,
+  clearVideo,
   youtubeModal,
   changeYoutubeModal,
 }) => {
@@ -56,6 +57,7 @@ const MyList = ({
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
                 videokey={videokey}
                 onVideo={onVideo}
+                clearVideo={clearVideo}
                 youtubeModal={youtubeModal}
                 changeYoutubeModal={changeYoutubeModal}
               />
@@ -70,6 +72,7 @@ const MyList = ({
                 posterPath={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
                 videokey={videokey}
                 onVideo={onVideo}
+                clearVideo={clearVideo}
                 youtubeModal={youtubeModal}
                 changeYoutubeModal={changeYoutubeModal}
               />

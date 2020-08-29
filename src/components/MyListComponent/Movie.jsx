@@ -53,6 +53,7 @@ const Movie = ({
   onRemove,
   videokey,
   onVideo,
+  clearVideo,
   youtubeModal,
   changeYoutubeModal,
 }) => {
@@ -79,6 +80,7 @@ const Movie = ({
         <YoutubeModal
           videokey={videokey}
           closeYouTubeModal={changeYoutubeModal}
+          clearVideo={clearVideo}
         />
       )}
     </>

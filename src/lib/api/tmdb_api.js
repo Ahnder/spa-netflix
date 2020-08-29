@@ -13,6 +13,21 @@ export const getNetflixoriginal = () =>
   );
 
 /**
+ * popular
+ * API 주소
+ * https://api.themoviedb.org/3/tv/popular?api_key=7b2585c3179825537cb88b4d13b35e1c&language=en-US&page=1
+ */
+export const getTvPopular = () =>
+  axios.get(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${MY_API_KEY}&language=en-US&page=1`,
+  );
+
+export const getMoviePopular = () =>
+  axios.get(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${MY_API_KEY}&language=en-US&page=1`,
+  );
+
+/**
  * Trending
  * API 주소
  * https://api.themoviedb.org/3/trending/all/week?api_key=7b2585c3179825537cb88b4d13b35e1c&language=en-US
@@ -25,6 +40,11 @@ export const getTvTrending = () =>
 export const getMovieTrending = () =>
   axios.get(
     `https://api.themoviedb.org/3/trending/movie/week?api_key=${MY_API_KEY}&language=en-US`,
+  );
+
+export const getAllTrending = () =>
+  axios.get(
+    `https://api.themoviedb.org/3/trending/All/week?api_key=${MY_API_KEY}&language=en-US`,
   );
 
 /**

@@ -7,8 +7,7 @@ const ButtonBlock = styled.div`
   margin-top: 1rem;
 `;
 const NetflixButton = styled.button`
-  width: 120px;
-  padding: 12px 15px;
+  padding: 12px 20px;
   border: none;
   border-radius: 5%;
   background: red;
@@ -45,6 +44,7 @@ const NetflixButton = styled.button`
  */
 const NetflixButtons = ({
   movie,
+  mainview,
   onInsert,
   openDetailsModal,
   openVideoModal,
@@ -53,16 +53,19 @@ const NetflixButtons = ({
     <ButtonBlock>
       <NetflixButton onClick={() => openVideoModal()}>
         <FiPlay />
-        <span>PLAY</span>
+        <span>재생</span>
       </NetflixButton>
-      <NetflixButton onClick={() => onInsert(movie)}>
-        <FiPlus />
-        <span>MYLIST</span>
-      </NetflixButton>
-      <NetflixButton onClick={() => openDetailsModal()}>
-        <FiInfo />
-        <span>DETAILS</span>
-      </NetflixButton>
+      {mainview === true ? (
+        <NetflixButton onClick={() => openDetailsModal()}>
+          <FiInfo />
+          <span>상세정보</span>
+        </NetflixButton>
+      ) : (
+        <NetflixButton onClick={() => onInsert(movie)}>
+          <FiPlus />
+          <span>내가 찜한 콘텐츠</span>
+        </NetflixButton>
+      )}
     </ButtonBlock>
   );
 };
