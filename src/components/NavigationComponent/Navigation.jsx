@@ -14,8 +14,8 @@ const NavBlock = styled.nav`
   flex-direction: row;
   align-content: center;
   align-items: center;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
 
   ${(props) =>
     props.scrollNav &&

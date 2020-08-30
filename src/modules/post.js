@@ -44,6 +44,7 @@ const post = handleActions(
         movies: action.payload,
       },
     }),
+
     [CLEAR_POST]: (state, action) => ({
       ...state,
       tvpost: {

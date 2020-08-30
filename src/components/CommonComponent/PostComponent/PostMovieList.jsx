@@ -59,7 +59,7 @@ const MovieList = styled.div`
  * movie.title ? <~> : <~> 의 삼항 연산자를 사용한 이유는 데이터값에 name과 title이 혼용되어 쓰이고 있기 떄문
  */
 
-const MainMovieList = ({ movies, listname }) => {
+const PostMovieList = ({ movies, listname }) => {
   const TOTAL_SLIDES = 3; // movies에 20개의 항목이 들어있으므로 3으로 설정(0, 1, 2, 3 으로 4개의 슬라이드)
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
@@ -121,4 +121,4 @@ const MainMovieList = ({ movies, listname }) => {
   );
 };
 
-export default MainMovieList;
+export default PostMovieList;

@@ -45,10 +45,10 @@ const MainMovieListContainer = () => {
 
   return (
     <>
-      <MainMovieList listName="Netflix 오리지널" movies={netflix} />
-      <MainMovieList listName="지금 뜨는 콘텐츠" movies={alltrend} />
-      <MainMovieList listName="인기 TV 프로그램" movies={tvpopular} />
-      <MainMovieList listName="인기 영화" movies={moviepopular} />
+      <MainMovieList listname="Netflix 오리지널" movies={netflix} />
+      <MainMovieList listname="지금 뜨는 콘텐츠" movies={alltrend} />
+      <MainMovieList listname="TOP 20 인기 TV 프로그램" movies={tvpopular} />
+      <MainMovieList listname="TOP 20 인기 영화" movies={moviepopular} />
     </>
   );
 };

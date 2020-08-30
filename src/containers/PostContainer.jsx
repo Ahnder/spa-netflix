@@ -3,6 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 /* import modules - post, mylist, videos */
 import { getTvPost, getMoviePost, clearPost } from '../modules/post';
 import {
+  getTvPopular,
+  getMoviePopular,
+  getTvSimilar,
+  getMovieSimilar,
+} from '../modules/mainlist';
+import {
   getTvVideoKey,
   getMovieVideoKey,
   clearVideoKey,
@@ -12,6 +18,7 @@ import { insertMyListTv, insertMyListMovie } from '../modules/mylist';
 /* import component */
 /* import common component */
 import PostView from '../components/CommonComponent/PostComponent/PostView';
+import PostMovieList from '../components/CommonComponent/PostComponent/PostMovieList';
 
 /**
  * PostContainer
@@ -27,14 +34,23 @@ const PostContainer = ({ id, type }) => {
     mylist: 마이리스트에 tv나 영화를 출력하기위해 저장하는 곳,
     프론트만 사용하기 때문에 세션스토리지를 사용 임시로 목록을 만듬
   */
-  const { tvpost, moviepost, videokey, mylist } = useSelector(
-    ({ post, mylist, videos }) => ({
-      tvpost: post.tvpost.movies,
-      moviepost: post.moviepost.movies,
-      videokey: videos.videokey,
-      mylist: mylist.mylist,
-    }),
-  );
+  const {
+    tvpost,
+    moviepost,
+    similarcontents,
+    tvpopular,
+    moviepopular,
+    videokey,
+    mylist,
+  } = useSelector(({ post, mylist, videos, mainlist }) => ({
+    tvpost: post.tvpost.movies,
+    moviepost: post.moviepost.movies,
+    similarcontents: mainlist.similarcontents,
+    tvpopular: mainlist.tvpopular,
+    moviepopular: mainlist.moviepopular,
+    videokey: videos.videokey,
+    mylist: mylist.mylist,
+  }));
   const dispatch = useDispatch();
   /*
     fn
@@ -65,6 +81,8 @@ const PostContainer = ({ id, type }) => {
   /* tv나 영화 클릭 시 id로 영화정보와 비디오키를 가져와 저장한다 */
   useEffect(() => {
     fn(getTvPost(id), getMoviePost(id));
+    fn(getTvSimilar(id), getMovieSimilar(id));
+    fn(getTvPopular(), getMoviePopular());
     fn(getTvVideoKey(id), getMovieVideoKey(id));
     return () => {
       dispatch(clearPost());
@@ -110,6 +128,14 @@ const PostContainer = ({ id, type }) => {
             />
           )}
         </>
+      )}
+      {similarcontents && similarcontents.length !== 0 && (
+        <PostMovieList listname="비슷한 콘텐츠" movies={similarcontents} />
+      )}
+      {type === 'tv' ? (
+        <PostMovieList listname="TOP 20 인기 TV 프로그램" movies={tvpopular} />
+      ) : (
+        <PostMovieList listname="TOP 20 인기 영화" movies={moviepopular} />
       )}
     </>
   );

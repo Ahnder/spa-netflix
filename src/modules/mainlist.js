@@ -21,6 +21,12 @@ const GET_TVPOPULAR_SUCCESS = 'mainlist/GET_TVPOPULAR_SUCCESS';
 const GET_MOVIEPOPULAR = 'mainlist/GET_MOVIEPOPULAR';
 const GET_MOVIEPOPULAR_SUCCESS = 'mainlist/GET_MOVIEPOPULAR_SUCCESS';
 
+const GET_TVSIMILAR = 'post/GET_TVSIMILAR';
+const GET_TVSIMILAR_SUCCESS = 'post/GET_TVSIMILAR_SUCCESS';
+
+const GET_MOVIESIMILAR = 'post/GET_MOVIESIMILAR';
+const GET_MOVIESIMILAR_SUCCESS = 'post/GET_MOVIESIMILAR_SUCCESS';
+
 const GET_GENRES = 'genres/GET_GENRES';
 const GET_GENRES_SUCCESS = 'genres/GET_GENRES_SUCCESS';
 
@@ -39,6 +45,11 @@ export const getMoviePopular = createRequestThunk(
   GET_MOVIEPOPULAR,
   api.getMoviePopular,
 );
+export const getTvSimilar = createRequestThunk(GET_TVSIMILAR, api.getTvSimilar);
+export const getMovieSimilar = createRequestThunk(
+  GET_MOVIESIMILAR,
+  api.getMovieSimilar,
+);
 export const getGenres = createRequestThunk(GET_GENRES, api.getGenres);
 
 // 초기 상태를 선언
@@ -48,6 +59,7 @@ const initialState = {
   alltrend: null,
   tvpopular: null,
   moviepopular: null,
+  similarcontents: null,
   genres: null,
 };
 
@@ -68,6 +80,14 @@ const mainlist = handleActions(
     [GET_MOVIEPOPULAR_SUCCESS]: (state, { payload: moviepopularData }) => ({
       ...state,
       moviepopular: moviepopularData.results,
+    }),
+    [GET_TVSIMILAR_SUCCESS]: (state, { payload: tvsimilarData }) => ({
+      ...state,
+      similarcontents: tvsimilarData.results,
+    }),
+    [GET_MOVIESIMILAR_SUCCESS]: (state, { payload: moviesimilarData }) => ({
+      ...state,
+      similarcontents: moviesimilarData.results,
     }),
     [GET_GENRES_SUCCESS]: (state, { payload: genresData }) => ({
       ...state,

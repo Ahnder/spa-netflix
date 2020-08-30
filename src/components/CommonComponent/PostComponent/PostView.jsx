@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /* import common component */
 //import NetflixButtons from '../NetflixButtons/NetflixButtons';
 import NetflixButtons from '../NetflixButtons/NetflixButtons';
-import Seasons from './Seasons';
+//import Seasons from './Seasons';
 import DetailsModal from '../ModalComponent/DetailsModal';
 import YoutubeModal from '../ModalComponent/YoutubeModal';
 
@@ -30,6 +30,9 @@ const MovieInfoTitle = styled.h1`
   font-size: 3rem;
   font-weight: 600;
 `;
+const MovieInfoYear = styled.p`
+  font-size: 1rem;
+`;
 const MovieInfoOverview = styled.p`
   display: inline-block;
   width: 50%;
@@ -45,6 +48,15 @@ const MovieInfoOverview = styled.p`
   word-wrap: break-word;
   line-height: 1.2em;
   height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+`;
+const MovieInfoGenreBlock = styled.div`
+  margin-top: 1rem;
+`;
+const MovieInfoGenre = styled.span`
+  font-size: 1rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
 `;
 
 const PostView = ({
@@ -75,6 +87,7 @@ const PostView = ({
         <BackgroundIMG src={posterPath} alt="PostBackgroundImage" />
         <MovieInfoBlock>
           <MovieInfoTitle>{title}</MovieInfoTitle>
+          <MovieInfoYear>{releaseDate}</MovieInfoYear>
           <MovieInfoOverview>{overview}</MovieInfoOverview>
           <NetflixButtons
             movie={movie}
@@ -82,12 +95,18 @@ const PostView = ({
             openDetailsModal={changeDetailsModal}
             openVideoModal={changeYoutubeModal}
           />
+          <MovieInfoGenreBlock>
+            <span>장르: </span>
+            {movie.genres.map((genre) => (
+              <MovieInfoGenre>{genre.name}</MovieInfoGenre>
+            ))}
+          </MovieInfoGenreBlock>
         </MovieInfoBlock>
       </MainViewBlock>
-      {movie.seasons &&
+      {/* {movie.seasons &&
         movie.seasons.map((season) => (
           <Seasons season={season} posterPath={movie.poster_path} />
-        ))}
+        ))} */}
       {detailsModal && (
         <DetailsModal
           movie={movie}

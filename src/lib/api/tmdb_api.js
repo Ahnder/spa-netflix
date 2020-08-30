@@ -48,6 +48,20 @@ export const getAllTrending = () =>
   );
 
 /**
+ * SIMILAR CONTENTS DATA
+ * API 주소
+ * https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MY_API_KEY}&language=en-US&page=1
+ */
+export const getMovieSimilar = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MY_API_KEY}&language=en-US&page=1`,
+  );
+export const getTvSimilar = (id) =>
+  axios.get(
+    `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${MY_API_KEY}&language=en-US&page=1`,
+  );
+
+/**
  * TVPOST
  * API 주소
  * https://api.themoviedb.org/3/tv/${id}?api_key=7b2585c3179825537cb88b4d13b35e1c&language=en-US
