@@ -73,7 +73,7 @@ const Navigation = ({ scrollNav }) => {
           <Link to="/">홈</Link>
         </LinkBlock>
         <LinkBlock>
-          <Link to="#">TV프로그램</Link>
+          <Link to="/tvcontents">TV프로그램</Link>
         </LinkBlock>
         <LinkBlock>
           <Link to="/genres">영화</Link>

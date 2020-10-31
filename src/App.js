@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import GenresPage from './pages/GenresPage';
 import MyListPage from './pages/MyListPage';
 import PostPage from './pages/PostPage';
+import TvcontentsPage from './pages/TvcontentsPage';
 /* import Navigation */
 import NavigationContainer from './containers/NavigationContainer';
 /* import Footer */
@@ -17,6 +18,7 @@ function App() {
       <NavigationContainer />
       <div className="App">
         <Route path="/" exact component={MainPage} />
+        <Route path="/tvcontents" component={TvcontentsPage} />
         <Route path="/genres" component={GenresPage} />
         <Route path="/mylist" component={MyListPage} />
         <Route path="/post/:id" component={PostPage} />
